@@ -1,14 +1,22 @@
+import type { Dictionary } from "@/i18n/dictionaries";
+
 type Metrics = {
   linesOfCode: string;
   functions: string;
   issuesSolved: string;
 };
 
-export function MetricsStrip({ metrics }: { metrics: Metrics }) {
+export function MetricsStrip({
+  metrics,
+  labels,
+}: {
+  metrics: Metrics;
+  labels: Dictionary["caseStudy"];
+}) {
   const items = [
-    { label: "Lines of code", value: metrics.linesOfCode },
-    { label: "Functions / modules", value: metrics.functions },
-    { label: "Issues solved", value: metrics.issuesSolved },
+    { label: labels.linesOfCode, value: metrics.linesOfCode },
+    { label: labels.functions, value: metrics.functions },
+    { label: labels.issuesSolved, value: metrics.issuesSolved },
   ];
 
   return (

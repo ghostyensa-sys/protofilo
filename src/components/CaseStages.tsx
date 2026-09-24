@@ -1,15 +1,29 @@
 "use client";
 
 import { motion } from "motion/react";
-import type { ProjectStory } from "@/content/projects";
-import { storyStages } from "@/content/projects";
+import { storyStageKeys } from "@/content/projects";
+import type { Dictionary } from "@/i18n/dictionaries";
 
-export function CaseStages({ story }: { story: ProjectStory }) {
+type Story = {
+  issue: string;
+  idea: string;
+  plan: string;
+  build: string;
+  impact: string;
+};
+
+export function CaseStages({
+  story,
+  stageLabels,
+}: {
+  story: Story;
+  stageLabels: Dictionary["stages"];
+}) {
   return (
     <div className="space-y-16">
-      {storyStages.map((stage, index) => (
+      {storyStageKeys.map((key, index) => (
         <motion.section
-          key={stage.key}
+          key={key}
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -21,11 +35,11 @@ export function CaseStages({ story }: { story: ProjectStory }) {
               {String(index + 1).padStart(2, "0")}
             </p>
             <h2 className="mt-2 text-sm tracking-[0.16em] text-[var(--ink)] uppercase">
-              {stage.label}
+              {stageLabels[key]}
             </h2>
           </div>
           <p className="max-w-2xl text-lg leading-relaxed text-[var(--ink-soft)]">
-            {story[stage.key]}
+            {story[key]}
           </p>
         </motion.section>
       ))}

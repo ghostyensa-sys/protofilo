@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "motion/react";
-import { storyStages } from "@/content/projects";
+import type { Dictionary } from "@/i18n/dictionaries";
+import { storyStageKeys } from "@/content/projects";
 
-export function StoryProcess() {
+export function StoryProcess({ dictionary }: { dictionary: Dictionary }) {
   return (
     <section className="border-y border-[var(--ink)]/10 bg-[var(--paper-2)] px-6 py-24 sm:px-10 lg:px-16">
       <div className="mx-auto max-w-6xl">
@@ -15,21 +16,20 @@ export function StoryProcess() {
           className="mb-14 max-w-2xl"
         >
           <p className="mb-3 text-xs tracking-[0.18em] text-[var(--muted)] uppercase">
-            How I tell work
+            {dictionary.process.eyebrow}
           </p>
           <h2 className="font-display text-4xl tracking-tight text-[var(--ink)] sm:text-5xl">
-            Issue to impact.
+            {dictionary.process.title}
           </h2>
           <p className="mt-4 text-lg text-[var(--ink-soft)]">
-            Every project follows the same arc — so you see the problem, the bet,
-            and what actually changed.
+            {dictionary.process.lead}
           </p>
         </motion.div>
 
         <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-          {storyStages.map((stage, index) => (
+          {storyStageKeys.map((key, index) => (
             <motion.li
-              key={stage.key}
+              key={key}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -44,7 +44,7 @@ export function StoryProcess() {
                 {String(index + 1).padStart(2, "0")}
               </span>
               <p className="mt-3 text-lg font-medium text-[var(--ink)]">
-                {stage.label}
+                {dictionary.stages[key]}
               </p>
             </motion.li>
           ))}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Fraunces, Outfit } from "next/font/google";
-import { SiteHeader } from "@/components/SiteHeader";
+import { Fraunces, IBM_Plex_Sans_Arabic, Outfit } from "next/font/google";
+import { ThemeBootScript } from "@/components/ThemeBootScript";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
 const display = Fraunces({
@@ -13,13 +14,19 @@ const body = Outfit({
   subsets: ["latin"],
 });
 
+const arabic = IBM_Plex_Sans_Arabic({
+  variable: "--font-arabic",
+  subsets: ["arabic"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: {
-    default: "Ali Al Aidarous",
-    template: "%s · Ali Al Aidarous",
+    default: "علي العيدروس · Ali Al Aidarous",
+    template: "%s · علي العيدروس",
   },
   description:
-    "Portfolio of Ali Al Aidarous — product and systems work told from issue to impact. Screenshots and metrics; source stays private.",
+    "معرض أعمال علي العيدروس — من المشكلة إلى الأثر. Ali Al Aidarous portfolio.",
 };
 
 export default function RootLayout({
@@ -28,10 +35,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} h-full`}>
+    <html
+      lang="ar"
+      suppressHydrationWarning
+      className={`${display.variable} ${body.variable} ${arabic.variable} h-full`}
+    >
+      <head>
+        <ThemeBootScript />
+      </head>
       <body className="min-h-full antialiased">
-        <SiteHeader />
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

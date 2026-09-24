@@ -8,6 +8,22 @@
   --muted: #6b7585;
   --accent: #2d8c94;
   --accent-deep: #1f6b72;
+  --hero-glow: rgba(45, 140, 148, 0.18);
+  --hero-shade: rgba(11, 18, 32, 0.08);
+  --background: var(--paper);
+  --foreground: var(--ink);
+}
+
+.dark {
+  --paper: #0c1118;
+  --paper-2: #141b24;
+  --ink: #e8eef4;
+  --ink-soft: #a8b3c2;
+  --muted: #7d8a9a;
+  --accent: #3ea8b0;
+  --accent-deep: #7ec8cd;
+  --hero-glow: rgba(62, 168, 176, 0.16);
+  --hero-shade: rgba(0, 0, 0, 0.35);
   --background: var(--paper);
   --foreground: var(--ink);
 }
@@ -17,6 +33,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
+  --font-arabic: var(--font-arabic);
 }
 
 html {
@@ -27,12 +44,28 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-body), system-ui, sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+html[lang="ar"] body,
+html[dir="rtl"] body {
+  font-family: var(--font-arabic), var(--font-body), system-ui, sans-serif;
 }
 
 .font-display {
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-display), Georgia, "Noto Naskh Arabic", serif;
+}
+
+html[lang="ar"] .font-display,
+html[dir="rtl"] .font-display {
+  font-family: var(--font-arabic), var(--font-display), serif;
+  letter-spacing: 0;
 }
 
 ::selection {
   background: rgba(45, 140, 148, 0.25);
+}
+
+.dark ::selection {
+  background: rgba(62, 168, 176, 0.35);
 }
