@@ -63,39 +63,39 @@ export const projects: Project[] = [
   {
     slug: "support-dashboard",
     title: {
-      en: "Support Dashboard",
-      ar: "لوحة الدعم",
+      en: "Support Operations Dashboard",
+      ar: "لوحة العمليات لفريق الدعم",
     },
     level: "pro",
     hook: {
-      en: "One ops surface for queues, ownership, and resolution speed.",
-      ar: "واجهة واحدة للعمليات: الطوابير والملكية وسرعة الحل.",
+      en: "A daily operations dashboard for support — live ops, attendance, and reports.",
+      ar: "لوحة عمليات يومية لفريق الدعم: العمليات، الحضور، والتقارير.",
     },
     summary: {
-      en: "An internal support workspace that turns scattered tickets into a clear, actionable queue.",
-      ar: "مساحة دعم داخلية تحوّل التذاكر المتفرقة إلى طابور واضح قابل للتنفيذ.",
+      en: "A command center for support agents and leads: daily operations, attendance, and reports in one place.",
+      ar: "مركز قيادة لوكلاء الدعم وقادة الفريق: العمليات اليومية والحضور والتقارير في مكان واحد.",
     },
     screenshots: [
       {
         src: "/projects/support-dashboard/01-overview.png",
         alt: {
-          en: "Support Dashboard overview",
-          ar: "نظرة عامة على لوحة الدعم",
+          en: "Support Operations Dashboard overview",
+          ar: "نظرة عامة على لوحة العمليات لفريق الدعم",
         },
         caption: {
-          en: "Queue overview — replace with your screenshot",
-          ar: "نظرة على الطابور — استبدل بلقطتك",
+          en: "Ops overview — replace with your screenshot",
+          ar: "نظرة على العمليات — استبدل بلقطتك",
         },
       },
       {
         src: "/projects/support-dashboard/02-detail.png",
         alt: {
-          en: "Support ticket detail",
-          ar: "تفاصيل تذكرة الدعم",
+          en: "Support operations detail",
+          ar: "تفاصيل عمليات الدعم",
         },
         caption: {
-          en: "Ticket detail — replace with your screenshot",
-          ar: "تفاصيل التذكرة — استبدل بلقطتك",
+          en: "Ops detail — replace with your screenshot",
+          ar: "تفاصيل العمليات — استبدل بلقطتك",
         },
       },
     ],
@@ -112,48 +112,48 @@ export const projects: Project[] = [
     },
     story: {
       issue: {
-        en: "Support work lived across inboxes and tools. Ownership was unclear, SLAs slipped, and managers could not see where work was stuck.",
-        ar: "عمل الدعم كان موزعًا على صناديق وأدوات متعددة. الملكية غير واضحة، والاتفاقيات الزمنية تتأخر، والمدراء لا يرون أين يتوقف العمل.",
+        en: "Daily support operations, attendance, and reporting lived across scattered tools. Agents and leads could not see the day — who is on shift, what is moving, and what leadership needs to know.",
+        ar: "العمليات اليومية والحضور والتقارير كانت موزعة على أدوات متفرقة. الوكلاء والقادة لا يرون اليوم: من في الوردية، وما الذي يتحرك، وما الذي تحتاجه الإدارة.",
       },
       idea: {
-        en: "A single dashboard where queues, assignees, priorities, and status live together — so agents act and leads coach from the same truth.",
-        ar: "لوحة واحدة تجمع الطوابير والمسؤولين والأولويات والحالة — ليعمل الوكلاء ويقود المشرفون من نفس الحقيقة.",
+        en: "One operations dashboard for agents and team leads — live daily ops, attendance, and reports from the same surface.",
+        ar: "لوحة عمليات واحدة للوكلاء وقادة الفريق — عمليات يومية حية وحضور وتقارير من نفس الواجهة.",
       },
       plan: {
-        en: "Map the real support lifecycle first: intake, triage, assignment, resolve, reopen. Design for roles (agent vs lead), then ship filters and live queue states before polish.",
-        ar: "أولًا رسم دورة الدعم الحقيقية: الاستقبال، الفرز، الإسناد، الحل، إعادة الفتح. تصميم حسب الأدوار ثم شحن الفلاتر وحالات الطابور الحية قبل التلميع.",
+        en: "Map agent vs lead workflows first: a live operations view, attendance, then reports. Ship the daily run before polish.",
+        ar: "أولًا رسم مسار الوكيل مقابل القائد: عرض عمليات حي، ثم الحضور، ثم التقارير. تشغيل اليوم قبل التلميع.",
       },
       build: {
-        en: "Built queue views, ticket detail flows, role-aware actions, and status transitions. Focused on clarity over chrome: what needs me now, and what is blocked.",
-        ar: "بُنيت عروض الطابور وتفاصيل التذاكر وإجراءات حسب الدور وانتقالات الحالة. الوضوح قبل الزخرفة: ما الذي ينتظرني الآن، وما هو معطل.",
+        en: "Built the daily operations dashboard, attendance tracking, and reporting so the support team runs the day from one place.",
+        ar: "بُنيت لوحة العمليات اليومية وتتبع الحضور والتقارير ليدير فريق الدعم يومه من مكان واحد.",
       },
       impact: {
-        en: "Faster triage, clearer ownership, and a shared picture of backlog health. (Swap in your real metrics when ready.)",
-        ar: "فرز أسرع وملكية أوضح وصورة مشتركة لصحة المتراكم. (استبدل بمقاييسك الحقيقية عندما تكون جاهزًا.)",
+        en: "Clearer daily operations, visible attendance, and reports leadership can actually use. (Swap in your real metrics when ready.)",
+        ar: "عمليات يومية أوضح وحضور مرئي وتقارير يمكن للإدارة استخدامها فعلًا. (استبدل بمقاييسك الحقيقية عندما تكون جاهزًا.)",
       },
     },
   },
   {
     slug: "jisr-payslips",
     title: {
-      en: "Jisr Payslips",
-      ar: "قسائم رواتب جسر",
+      en: "Payslip System",
+      ar: "قسائم الرواتب",
     },
     level: "pro",
     hook: {
-      en: "Self-serve payslip clarity without the payroll ticket loop.",
-      ar: "وضوح قسائم الرواتب ذاتيًا دون حلقة تذاكر الرواتب.",
+      en: "Turn Google Sheets into a smart dashboard that emails detailed payslips to employees.",
+      ar: "حوّل جداول Google إلى لوحة ذكية ترسل قسائم رواتب مفصّلة للموظفين بالبريد.",
     },
     summary: {
-      en: "A payslip experience that helps employees find, understand, and download pay documents securely.",
-      ar: "تجربة قسائم تساعد الموظفين على إيجاد وفهم وتحميل مستندات الراتب بأمان.",
+      en: "A payslip system that reads payroll data from Google Sheets and sends each employee a detailed payslip by email.",
+      ar: "نظام قسائم يقرأ بيانات الرواتب من جداول Google ويرسل لكل موظف قسيمة مفصّلة عبر البريد.",
     },
     screenshots: [
       {
         src: "/projects/jisr-payslips/01-overview.png",
         alt: {
-          en: "Jisr Payslips overview",
-          ar: "نظرة عامة على قسائم جسر",
+          en: "Payslip System overview",
+          ar: "نظرة عامة على قسائم الرواتب",
         },
         caption: {
           en: "Payslip list — replace with your screenshot",
@@ -185,24 +185,24 @@ export const projects: Project[] = [
     },
     story: {
       issue: {
-        en: "Employees needed payslips quickly; payroll teams absorbed repetitive requests. Access rules and document clarity made self-serve hard.",
-        ar: "الموظفون يحتاجون القسائم بسرعة؛ وفرق الرواتب تغرق في الطلبات المتكررة. قواعد الوصول ووضوح المستندات جعلت الخدمة الذاتية صعبة.",
+        en: "Payroll lived in Google Sheets, and employees still waited on someone to build and send each payslip by hand.",
+        ar: "الرواتب كانت في جداول Google، والموظفون ما زالوا ينتظرون من يبني ويرسل كل قسيمة يدويًا.",
       },
       idea: {
-        en: "Put payslips where people already work — with clear periods, secure access, and downloads that do not need a human in the loop.",
-        ar: "وضع القسائم حيث يعمل الناس أصلًا — بفترات واضحة ووصول آمن وتحميل بلا تدخل بشري.",
+        en: "Turn those sheets into a smart dashboard that emails a detailed payslip to each employee.",
+        ar: "تحويل تلك الجداول إلى لوحة ذكية ترسل قسيمة مفصّلة لكل موظف بالبريد.",
       },
       plan: {
-        en: "Define access boundaries, period selection, and document states. Keep privacy first; then optimize for findability and download reliability.",
-        ar: "تحديد حدود الوصول واختيار الفترة وحالات المستند. الخصوصية أولًا؛ ثم تحسين سهولة الإيجاد وموثوقية التحميل.",
+        en: "Map the sheet columns to payslip fields, design the dashboard, then automate the email send so payroll does not stay manual.",
+        ar: "ربط أعمدة الجدول بحقول القسيمة، تصميم اللوحة، ثم أتمتة الإرسال حتى لا يبقى العمل يدويًا.",
       },
       build: {
-        en: "Shipped list and detail views, period navigation, and download paths. Emphasized calm UI for a high-trust document flow.",
-        ar: "شُحنت قوائم وتفاصيل وتنقل بين الفترات ومسارات التحميل. واجهة هادئة لمسار مستندات عالي الثقة.",
+        en: "Built the dashboard on top of Google Sheets and the email flow that delivers a detailed payslip to each employee.",
+        ar: "بُنيت اللوحة فوق جداول Google ومسار البريد الذي يوصل قسيمة مفصّلة لكل موظف.",
       },
       impact: {
-        en: "Fewer repetitive payroll tickets and faster employee access. (Replace with your measured outcomes.)",
-        ar: "تذاكر رواتب متكررة أقل ووصول أسرع للموظفين. (استبدل بنتائجك المقاسة.)",
+        en: "Payslips go out from the sheet without the manual loop. (Replace with your measured outcomes.)",
+        ar: "القسائم تخرج من الجدول دون الحلقة اليدوية. (استبدل بنتائجك المقاسة.)",
       },
     },
   },
@@ -210,23 +210,23 @@ export const projects: Project[] = [
     slug: "cross-org-requests",
     title: {
       en: "Cross-org Requests",
-      ar: "طلبات عبر المنظمات",
+      ar: "نظام الطلبات بين الأقسام",
     },
     level: "pro",
     hook: {
-      en: "Requests that travel between organizations without disappearing.",
-      ar: "طلبات تنتقل بين المنظمات دون أن تختفي.",
+      en: "An organized system for requests between departments — clear ownership, and automatic escalation so nothing stalls.",
+      ar: "نظام منظّم للطلبات بين الأقسام: ملكية واضحة وتصعيد تلقائي حتى لا يتأخر العمل.",
     },
     summary: {
-      en: "A shared request lifecycle for handoffs across orgs — ownership, approvals, and audit in one path.",
-      ar: "دورة حياة مشتركة للطلبات بين المنظمات — ملكية وموافقات وتدقيق في مسار واحد.",
+      en: "Departments send requests with clear ownership over requests and client demands. The system escalates on its own so work does not sit and wait.",
+      ar: "الأقسام ترسل الطلبات بملكية واضحة على الطلبات ومتطلبات العملاء. النظام يصعّد بنفسه حتى لا يبقى العمل معلّقًا.",
     },
     screenshots: [
       {
         src: "/projects/cross-org-requests/01-overview.png",
         alt: {
           en: "Cross-org requests board",
-          ar: "لوحة طلبات عبر المنظمات",
+          ar: "لوحة نظام الطلبات بين الأقسام",
         },
         caption: {
           en: "Request board — replace with your screenshot",
@@ -237,7 +237,7 @@ export const projects: Project[] = [
         src: "/projects/cross-org-requests/02-detail.png",
         alt: {
           en: "Cross-org request detail",
-          ar: "تفاصيل طلب عبر المنظمات",
+          ar: "تفاصيل طلب بين الأقسام",
         },
         caption: {
           en: "Request detail — replace with your screenshot",
@@ -258,48 +258,48 @@ export const projects: Project[] = [
     },
     story: {
       issue: {
-        en: "Cross-organization requests stalled in email and chat. Nobody owned the next step, and history was hard to reconstruct.",
-        ar: "الطلبات بين المنظمات تتوقف في البريد والدردشة. لا أحد يملك الخطوة التالية، والتاريخ يصعب إعادة بنائه.",
+        en: "Requests between departments stalled in email and chat. Ownership over requests and client demands was unclear, and delays piled up because nobody escalated them.",
+        ar: "الطلبات بين الأقسام تتوقف في البريد والدردشة. الملكية على الطلبات ومتطلبات العملاء غير واضحة، والتأخير يتراكم لأن لا أحد يصعّدها.",
       },
       idea: {
-        en: "A shared request object with explicit states, owners, and an audit trail that both sides can trust.",
-        ar: "كائن طلب مشترك بحالات صريحة ومالكين ومسار تدقيق يثق به الطرفان.",
+        en: "An organized request path with a clear owner, and a system that escalates on its own so work does not sit.",
+        ar: "مسار طلب منظّم بمالك واضح، ونظام يصعّد بنفسه حتى لا يبقى العمل معلّقًا.",
       },
       plan: {
-        en: "Model states (submitted → review → approved → done), define who can act at each step, and surface blockers before they age into silence.",
-        ar: "نمذجة الحالات (مُقدَّم ← مراجعة ← موافقة ← مكتمل)، وتحديد من يتصرف في كل خطوة، وإظهار المعوقات قبل أن تتحول إلى صمت.",
+        en: "Define ownership at each step, model the request states, and set escalation rules that fire when a request waits too long.",
+        ar: "تحديد الملكية في كل خطوة، ونمذجة حالات الطلب، ووضع قواعد تصعيد تعمل عندما يتأخر الطلب.",
       },
       build: {
-        en: "Built request creation, state machine UI, assignment, and history. Prioritized visibility: where is it, who moves it next.",
-        ar: "بُني إنشاء الطلب وواجهة آلة الحالة والإسناد والتاريخ. الأولوية للرؤية: أين هو، ومن يحرّكه تاليًا.",
+        en: "Built request creation, ownership, and automatic escalation so departments and client demands keep moving.",
+        ar: "بُني إنشاء الطلب والملكية والتصعيد التلقائي حتى تستمر الأقسام ومتطلبات العملاء في الحركة.",
       },
       impact: {
-        en: "Shorter cycle times and fewer lost requests across org boundaries. (Add your before/after numbers here.)",
-        ar: "دورات أقصر وطلبات ضائعة أقل عبر حدود المنظمات. (أضف أرقامك قبل/بعد هنا.)",
+        en: "Fewer stalled requests between departments, because ownership is explicit and the system escalates delays. (Add your before/after numbers here.)",
+        ar: "طلبات متوقفة أقل بين الأقسام، لأن الملكية صريحة والنظام يصعّد التأخير. (أضف أرقامك قبل/بعد هنا.)",
       },
     },
   },
   {
     slug: "nyx-w",
     title: {
-      en: "NYX-W",
-      ar: "NYX-W",
+      en: "NYX — The Watching Eye",
+      ar: "NYX العين التي ترى كل شيء",
     },
     level: "personal",
     hook: {
-      en: "A personal build — craft, experiments, and product instincts outside the day job.",
-      ar: "بناء شخصي — حرفة وتجارب وحدس منتج خارج العمل اليومي.",
+      en: "NYX — The Watching Eye. A personal build that sees the work others miss.",
+      ar: "NYX العين التي ترى كل شيء — بناء شخصي يرى ما يفوت الآخرين.",
     },
     summary: {
-      en: "Independent work exploring product feel, interaction, and systems thinking on my own terms.",
-      ar: "عمل مستقل يستكشف إحساس المنتج والتفاعل وتفكير الأنظمة بشروطي الخاصة.",
+      en: "NYX, The Watching Eye: independent work exploring product feel, interaction, and systems thinking on my own terms.",
+      ar: "NYX، العين التي ترى كل شيء: عمل مستقل يستكشف إحساس المنتج والتفاعل وتفكير الأنظمة بشروطي الخاصة.",
     },
     screenshots: [
       {
         src: "/projects/nyx-w/01-overview.png",
         alt: {
-          en: "NYX-W overview",
-          ar: "نظرة عامة على NYX-W",
+          en: "NYX overview",
+          ar: "نظرة عامة على NYX",
         },
         caption: {
           en: "Overview — replace with your screenshot",
@@ -309,8 +309,8 @@ export const projects: Project[] = [
       {
         src: "/projects/nyx-w/02-detail.png",
         alt: {
-          en: "NYX-W detail",
-          ar: "تفاصيل NYX-W",
+          en: "NYX detail",
+          ar: "تفاصيل NYX",
         },
         caption: {
           en: "Detail — replace with your screenshot",
@@ -335,8 +335,8 @@ export const projects: Project[] = [
         ar: "أردت مساحة لدفع الحرفة والأفكار التي لا تناسب لوحة السبرنت — دون انتظار إذن.",
       },
       idea: {
-        en: "NYX-W as a personal product lab: ship something opinionated, learn from the edges, keep the bar high.",
-        ar: "NYX-W كمختبر منتج شخصي: أشحن شيئًا له رأي، وأتعلم من الحواف، وأبقي المعيار مرتفعًا.",
+        en: "NYX, The Watching Eye, as a personal product lab: ship something opinionated, learn from the edges, keep the bar high.",
+        ar: "NYX، العين التي ترى كل شيء، كمختبر منتج شخصي: أشحن شيئًا له رأي، وأتعلم من الحواف، وأبقي المعيار مرتفعًا.",
       },
       plan: {
         en: "Scope a vertical slice, design the feeling first, then build the smallest system that still feels intentional.",

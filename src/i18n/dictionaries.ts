@@ -45,7 +45,9 @@ export type Dictionary = {
     eyebrow: string;
     title: string;
     lead: string;
-    emailHint: string;
+    whatsapp: string;
+    email: string;
+    linkedin: string;
     copyright: string;
   };
   caseStudy: {
@@ -119,7 +121,9 @@ const ar: Dictionary = {
     eyebrow: "تواصل",
     title: "لنتحدث عن البناء القادم.",
     lead: "منفتح على المنتجات والأدوات الداخلية والتعاون المدروس.",
-    emailHint: "استبدل بالبريد / لينكدإن عندما تكون جاهزًا.",
+    whatsapp: "واتساب",
+    email: "البريد",
+    linkedin: "لينكدإن",
     copyright:
       "تُعرض الأعمال عبر لقطات ومقاييس — المصدر يبقى خاصًا.",
   },
@@ -194,7 +198,9 @@ const en: Dictionary = {
     eyebrow: "Contact",
     title: "Let's talk about the next build.",
     lead: "Open to product, internal tools, and thoughtful collaboration.",
-    emailHint: "Replace with your email / LinkedIn when ready.",
+    whatsapp: "WhatsApp",
+    email: "Email",
+    linkedin: "LinkedIn",
     copyright:
       "Work shown via screenshots and metrics — source stays private.",
   },
