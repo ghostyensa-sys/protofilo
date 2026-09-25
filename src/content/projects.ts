@@ -4,9 +4,12 @@ export type ProjectLevel = "pro" | "personal";
 export type LocalizedString = Record<Locale, string>;
 
 export type ProjectMetrics = {
+  platform: LocalizedString;
   linesOfCode: string;
-  functions: LocalizedString;
+  functions: string;
+  modules: string;
   issuesSolved: LocalizedString;
+  integration: LocalizedString;
 };
 
 export type ProjectScreenshot = {
@@ -46,9 +49,12 @@ export type LocalizedProject = {
     caption?: string;
   }[];
   metrics: {
+    platform: string;
     linesOfCode: string;
     functions: string;
+    modules: string;
     issuesSolved: string;
+    integration: string;
   };
   story: {
     issue: string;
@@ -100,14 +106,20 @@ export const projects: Project[] = [
       },
     ],
     metrics: {
-      linesOfCode: "~8k",
-      functions: {
-        en: "35+ modules",
-        ar: "+٣٥ وحدة",
+      platform: {
+        en: "Google Apps Script + Sheets",
+        ar: "Google Apps Script وجداول Google",
       },
+      linesOfCode: "11,703",
+      functions: "600",
+      modules: "1",
       issuesSolved: {
-        en: "12 ops pain points",
-        ar: "١٢ نقطة ألم تشغيلية",
+        en: "43",
+        ar: "43",
+      },
+      integration: {
+        en: "Slack, Zendesk, and Maqsam via API",
+        ar: "Slack و Zendesk و Maqsam عبر API",
       },
     },
     story: {
@@ -173,14 +185,20 @@ export const projects: Project[] = [
       },
     ],
     metrics: {
-      linesOfCode: "~6k",
-      functions: {
-        en: "25+ flows",
-        ar: "+٢٥ مسارًا",
+      platform: {
+        en: "Google Apps Script + Sheets",
+        ar: "Google Apps Script وجداول Google",
       },
+      linesOfCode: "3,061",
+      functions: "69",
+      modules: "4",
       issuesSolved: {
-        en: "9 payroll friction points",
-        ar: "٩ نقاط احتكاك في الرواتب",
+        en: "Not recorded in source",
+        ar: "غير مسجّل في المصدر",
+      },
+      integration: {
+        en: "Gmail — detailed payslips emailed from Google Sheets",
+        ar: "Gmail — قسائم مفصّلة تُرسل بالبريد من جداول Google",
       },
     },
     story: {
@@ -246,14 +264,20 @@ export const projects: Project[] = [
       },
     ],
     metrics: {
-      linesOfCode: "~10k",
-      functions: {
-        en: "45+ handlers",
-        ar: "+٤٥ معالجًا",
+      platform: {
+        en: "Google Apps Script + Sheets",
+        ar: "Google Apps Script وجداول Google",
       },
+      linesOfCode: "6,705",
+      functions: "160",
+      modules: "8",
       issuesSolved: {
-        en: "15 handoff gaps",
-        ar: "١٥ فجوة في التسليم",
+        en: "Not recorded in source",
+        ar: "غير مسجّل في المصدر",
+      },
+      integration: {
+        en: "Slack and email",
+        ar: "Slack والبريد الإلكتروني",
       },
     },
     story: {
@@ -319,14 +343,20 @@ export const projects: Project[] = [
       },
     ],
     metrics: {
-      linesOfCode: "~4k",
-      functions: {
-        en: "20+ experiments",
-        ar: "+٢٠ تجربة",
+      platform: {
+        en: "Python API and web app",
+        ar: "واجهة Python وتطبيق ويب",
       },
+      linesOfCode: "28,316",
+      functions: "355",
+      modules: "170",
       issuesSolved: {
-        en: "Personal product bets",
-        ar: "رهانات منتج شخصية",
+        en: "Not recorded in source",
+        ar: "غير مسجّل في المصدر",
+      },
+      integration: {
+        en: "Telegram, Stripe, Redis, and webhooks",
+        ar: "Telegram و Stripe و Redis و Webhooks",
       },
     },
     story: {
@@ -370,9 +400,12 @@ export function localizeProject(
       caption: shot.caption?.[locale],
     })),
     metrics: {
+      platform: project.metrics.platform[locale],
       linesOfCode: project.metrics.linesOfCode,
-      functions: project.metrics.functions[locale],
+      functions: project.metrics.functions,
+      modules: project.metrics.modules,
       issuesSolved: project.metrics.issuesSolved[locale],
+      integration: project.metrics.integration[locale],
     },
     story: {
       issue: project.story.issue[locale],

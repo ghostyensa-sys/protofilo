@@ -59,9 +59,12 @@ export type Dictionary = {
     theStory: string;
     previous: string;
     next: string;
+    platform: string;
     linesOfCode: string;
     functions: string;
+    modules: string;
     issuesSolved: string;
+    integration: string;
     screenshotPlaceholder: string;
     dropImageAt: string;
   };
@@ -136,9 +139,12 @@ const ar: Dictionary = {
     theStory: "القصة",
     previous: "السابق",
     next: "التالي",
+    platform: "المنصة",
     linesOfCode: "أسطر الشيفرة",
-    functions: "دوال / وحدات",
+    functions: "الدوال",
+    modules: "الوحدات",
     issuesSolved: "مشاكل حُلّت",
+    integration: "التكامل",
     screenshotPlaceholder: "مكان اللقطة",
     dropImageAt: "ضع صورتك في",
   },
@@ -214,9 +220,12 @@ const en: Dictionary = {
     theStory: "The story",
     previous: "Previous",
     next: "Next",
+    platform: "Platform",
     linesOfCode: "Lines of code",
-    functions: "Functions / modules",
+    functions: "Functions",
+    modules: "Modules",
     issuesSolved: "Issues solved",
+    integration: "Integration",
     screenshotPlaceholder: "Screenshot placeholder",
     dropImageAt: "Drop your image at",
   },

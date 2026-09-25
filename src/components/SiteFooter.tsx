@@ -1,8 +1,11 @@
 import { contact } from "@/content/contact";
 import type { Dictionary } from "@/i18n/dictionaries";
 
-const iconButtonClass =
-  "inline-flex h-12 w-12 items-center justify-center border border-[var(--ink)]/15 text-[var(--ink)] transition hover:border-[var(--accent)] hover:text-[var(--accent-deep)]";
+const contactLinkClass =
+  "inline-flex items-center gap-3 text-[var(--ink)] transition hover:text-[var(--accent-deep)]";
+
+const iconBoxClass =
+  "inline-flex h-11 w-11 shrink-0 items-center justify-center border border-[var(--ink)]/15";
 
 export function SiteFooter({ dictionary }: { dictionary: Dictionary }) {
   return (
@@ -22,34 +25,46 @@ export function SiteFooter({ dictionary }: { dictionary: Dictionary }) {
             {dictionary.contact.lead}
           </p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col gap-4">
           <a
             href={contact.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className={iconButtonClass}
+            className={contactLinkClass}
             aria-label={dictionary.contact.whatsapp}
-            title={dictionary.contact.whatsapp}
           >
-            <WhatsAppIcon />
+            <span className={iconBoxClass}>
+              <WhatsAppIcon />
+            </span>
+            <span dir="ltr" className="text-sm">
+              {contact.whatsappDisplay}
+            </span>
           </a>
           <a
             href={contact.email}
-            className={iconButtonClass}
+            className={contactLinkClass}
             aria-label={dictionary.contact.email}
-            title={contact.emailDisplay}
           >
-            <EmailIcon />
+            <span className={iconBoxClass}>
+              <EmailIcon />
+            </span>
+            <span dir="ltr" className="text-sm">
+              {contact.emailDisplay}
+            </span>
           </a>
           <a
             href={contact.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className={iconButtonClass}
+            className={contactLinkClass}
             aria-label={dictionary.contact.linkedin}
-            title={dictionary.contact.linkedin}
           >
-            <LinkedInIcon />
+            <span className={iconBoxClass}>
+              <LinkedInIcon />
+            </span>
+            <span dir="ltr" className="text-sm">
+              {contact.linkedinName}
+            </span>
           </a>
         </div>
       </div>
