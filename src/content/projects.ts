@@ -143,107 +143,107 @@ export const projects: Project[] = [
       issue: {
         lead: {
           en: "I lead 12 support agents in a SaaS company. Tickets live in Zendesk and client calls live in Maqsam. Both products are strong, and the day still wastes time, because the operation is not live and nothing is readable in one look.",
-          ar: "أقود فريق دعم من 12 وكيلًا في شركة SaaS. التذاكر على Zendesk، ومكالمات العملاء على Maqsam. النظامان قويان، ويوم العمل ما زال يضيع وقتًا، لأن العملية ليست حية ولا تُقرأ من نظرة واحدة.",
+          ar: "أقود فريق دعم مكوّنًا من 12 موظفًا في إحدى شركات البرمجيات كخدمة (SaaS). نعتمد على Zendesk لإدارة التذاكر، وعلى Maqsam لاستقبال مكالمات العملاء. ورغم كفاءة النظامين، كانت متابعة العمل اليومي تستهلك وقتًا طويلًا؛ فالمعلومات موزعة، ولا توجد شاشة واحدة تمنحنا صورة لحظية وواضحة عن سير العمليات.",
         },
         points: [
           {
             en: "No live, on-time dashboard",
-            ar: "لا توجد لوحة حية لحظية",
+            ar: "غياب لوحة تشغيل لحظية تعرض الوضع الحالي بصورة موحّدة",
           },
           {
             en: "Peak hours, who is online or offline, tickets closed, and what is aging",
-            ar: "ساعات الذروة، ومن متصل ومن غير متصل، والتذاكر المغلقة، وما تقادم",
+            ar: "صعوبة معرفة ساعات الذروة، وحالة توافر أعضاء الفريق، وعدد التذاكر المغلقة والمتقادمة لدى كل موظف",
           },
           {
             en: "CSAT and first resolution",
-            ar: "رضا العملاء، والحل من أول مرة",
+            ar: "تشتت مؤشرات رضا العملاء (CSAT) ونسبة الحل من أول تواصل",
           },
           {
             en: "Workforce: who completed the required 7.5 hours online and active, and who is short on work",
-            ar: "القوة العاملة: من أكمل 7.5 ساعة متصلًا ونشطًا، ومن قصّر في العمل",
+            ar: "صعوبة متابعة الالتزام التشغيلي: من حقق 7.5 ساعات من النشاط الفعلي، ومن لم يحقق الساعات أو حجم العمل المطلوب",
           },
           {
             en: "Agents cannot see which colleague is available",
-            ar: "الوكيل لا يرى أي زميل متاح",
+            ar: "عدم وجود طريقة سريعة لمعرفة الزملاء المتاحين للمساندة",
           },
           {
             en: "An agent's own work and effort are not documented",
-            ar: "عمل الوكيل وجهده غير موثّقين",
+            ar: "غياب سجل واضح يوثّق أداء كل موظف وجهده وتطوره بمرور الوقت",
           },
           {
             en: "Weekly performance is assembled by hand",
-            ar: "أداء الأسبوع يُجمع يدويًا",
+            ar: "الاعتماد على إعداد تقارير الأداء الأسبوعية يدويًا",
           },
         ],
       },
       idea: {
         lead: {
           en: "The dashboard documents the work, raises agent performance, and gives leaders the numbers for a decision.",
-          ar: "اللوحة توثّق العمل، وترفع أداء الوكلاء، وتعطي القادة الأرقام التي يُبنى عليها القرار.",
+          ar: "من هنا جاءت فكرة بناء لوحة عمليات موحّدة لا تكتفي بعرض الأرقام، بل توثّق العمل، وتساعد الموظفين على تطوير أدائهم، وتمنح القادة أساسًا واضحًا لاتخاذ القرار.",
         },
         points: [
           {
             en: "When is peak, and what should we do?",
-            ar: "متى الذروة، وماذا نفعل؟",
+            ar: "متى تبدأ ساعات الذروة، وكيف نستعد لها؟",
           },
           {
             en: "Which channel is loudest, and which ticket types are arriving?",
-            ar: "أي قناة الأكثر، وأي أنواع التذاكر تصل؟",
+            ar: "أي قناة تستقبل أكبر حجم من الطلبات؟ وما أنواع التذاكر الأكثر تكرارًا؟",
           },
           {
             en: "Why are calls or emails spiking at this hour?",
-            ar: "لماذا تكثر المكالمات أو الرسائل في هذا الوقت؟",
+            ar: "ما سبب ارتفاع عدد المكالمات أو الرسائل في وقت معيّن؟",
           },
           {
             en: "Who should be promoted, who is best by the numbers, and who is not?",
-            ar: "من يستحق الترقية، ومن الأفضل بالأرقام، ومن ليس كذلك؟",
+            ar: "من يستحق الترقية؟ ومن يتصدر الأداء وفق أرقام عادلة وواضحة؟",
           },
           {
             en: "Who is improving, and who is not?",
-            ar: "من يتحسن، ومن لا يتحسن؟",
+            ar: "من يتحسن بمرور الوقت، ومن يحتاج إلى دعم أو توجيه؟",
           },
           {
             en: "Why is this agent's performance off, and who is affecting the team?",
-            ar: "لماذا أداء هذا الوكيل ليس في أفضل حال، ومن يؤثر على الفريق؟",
+            ar: "ما أسباب تراجع أداء موظف بعينه؟ وما أثر ذلك في أداء الفريق؟",
           },
         ],
       },
       plan: {
         lead: {
           en: "Zendesk and Maqsam stay the systems of record. One operations layer sits in front of them.",
-          ar: "Zendesk وMaqsam يبقيان مصدر الحقيقة. وأمامهما طبقة عمليات واحدة.",
+          ar: "كان القرار إبقاء Zendesk وMaqsam مصدرين أساسيين للبيانات، وبناء طبقة تشغيلية موحّدة تجمع هذه البيانات وتحولها إلى معلومات قابلة للتنفيذ.",
         },
         points: [
           {
             en: "Four working tabs",
-            ar: "أربعة تبويبات عمل",
+            ar: "أربعة تبويبات رئيسية تغطي سير العمل اليومي",
           },
           {
             en: "Settings for every metric",
-            ar: "إعدادات تتحكم في كل مقياس",
+            ar: "إعدادات مرنة للتحكم في المؤشرات وقواعد القياس",
           },
           {
             en: "A profile for each agent",
-            ar: "ملف لكل وكيل",
+            ar: "ملف أداء مستقل لكل موظف",
           },
           {
             en: "Weekly, monthly, and quarterly performance emails",
-            ar: "رسائل أداء أسبوعية وشهرية وربع سنوية",
+            ar: "تقارير أداء آلية تُرسل أسبوعيًا وشهريًا وربع سنويًا",
           },
           {
             en: "TV mode for the floor",
-            ar: "وضع تلفاز لقاعة الفريق",
+            ar: "وضع شاشة (TV Mode) لعرض الحالة المباشرة داخل مقر الفريق",
           },
           {
             en: "Exports for bad ratings, workforce, and overview",
-            ar: "تصدير تقارير التقييمات السيئة والقوى العاملة والنظرة العامة",
+            ar: "تصدير تقارير النظرة العامة، والقوى العاملة، والتقييمات السلبية",
           },
         ],
       },
       build: {
         lead: {
           en: "Four tabs run the day. Settings, reports, profiles, TV mode, and exports sit around them.",
-          ar: "أربعة تبويبات تدير اليوم. وحولها الإعدادات والتقارير وملفات الوكلاء ووضع التلفاز والتصدير.",
+          ar: "تحولت الفكرة إلى منظومة تشغيلية تدير يوم الفريق عبر أربعة تبويبات رئيسية، وتتكامل معها الإعدادات والتقارير وملفات الأداء ووضع الشاشة وخيارات التصدير.",
         },
         groups: [
           {
@@ -251,36 +251,36 @@ export const projects: Project[] = [
             points: [
               {
                 en: "Current queue, metrics, and top performance",
-                ar: "الطابور الحالي، والمقاييس، والأداء الأعلى",
+                ar: "عرض لحظي للطابور الحالي، والمؤشرات الأساسية، وأفضل أداء",
               },
               {
                 en: "Ticket-type volume and tickets per channel",
-                ar: "كمية كل نوع تذكرة، وعدد التذاكر في كل قناة",
+                ar: "توزيع التذاكر حسب النوع وقناة التواصل",
               },
               {
                 en: "Yesterday's hero",
-                ar: "بطل الأمس",
+                ar: "إبراز «بطل الأمس» تقديرًا للأداء المتميز",
               },
             ],
           },
           {
-            title: { en: "Workforce", ar: "القوى العاملة" },
+            title: { en: "Workforce", ar: "إدارة القوى العاملة" },
             points: [
               {
                 en: "Each agent's queue and metrics",
-                ar: "طابور كل وكيل ومقاييسه",
+                ar: "عرض طابور كل موظف ومؤشرات أدائه",
               },
               {
                 en: "Who is late, and by how many minutes",
-                ar: "من تأخر، وبكم دقيقة",
+                ar: "متابعة التأخير بالدقائق، والحضور، والحالة الحالية",
               },
               {
                 en: "Who is online, and who holds the largest queue",
-                ar: "من متصل، ومن معه أكبر طابور",
+                ar: "معرفة الموظفين المتصلين وحجم العمل لدى كل منهم",
               },
               {
                 en: "The team's old tickets in one place, so help goes where it is needed",
-                ar: "تذاكر الفريق القديمة في مكان واحد، حتى تذهب المساعدة حيث تحتاج",
+                ar: "جمع التذاكر المتقادمة في مكان واحد لتوجيه تدخل قائد الفريق إلى ما يحتاجه فعلًا",
               },
             ],
           },
@@ -289,28 +289,28 @@ export const projects: Project[] = [
             points: [
               {
                 en: "Cards the team reported",
-                ar: "البطاقات التي بلّغها الفريق",
+                ar: "عرض بلاغات Jira التي رفعها فريق الدعم",
               },
               {
                 en: "Priority by client size and how many people the issue affects",
-                ar: "الأولوية حسب حجم العميل وعدد المتأثرين",
+                ar: "ترتيب الأولوية وفق حجم العميل وعدد المستخدمين المتأثرين",
               },
             ],
           },
           {
-            title: { en: "Bad ratings", ar: "التقييمات السيئة" },
+            title: { en: "Bad ratings", ar: "التقييمات السلبية" },
             points: [
               {
                 en: "Who rated poorly, why, the comment, and the tier",
-                ar: "من قيّم تقييمًا سيئًا، ولماذا، والتعليق، والفئة",
+                ar: "تحديد صاحب التقييم السلبي وسببه وتعليقه وفئته",
               },
               {
                 en: "The cause: a feature request, bad service, a system limit, or wrong information",
-                ar: "السبب: طلب ميزة، أو خدمة سيئة، أو حد في النظام، أو معلومة خاطئة",
+                ar: "تصنيف السبب: طلب ميزة، أو قصور في الخدمة، أو قيد في النظام، أو معلومة غير صحيحة",
               },
               {
                 en: "Used to coach the team, and to send product what is not a service failure",
-                ar: "للتدريب على أداء الفريق، ولتمرير ما ليس فشل خدمة إلى فريق المنتج",
+                ar: "تحويل الملاحظات إلى فرص لتحسين أداء الفريق، وإيصال ما يتعلق بالمنتج إلى الفريق المختص",
               },
             ],
           },
@@ -319,15 +319,15 @@ export const projects: Project[] = [
             points: [
               {
                 en: "Every metric is controlled from settings",
-                ar: "كل مقياس يُضبط من الإعدادات",
+                ar: "التحكم في المؤشرات ومعايير القياس من مكان واحد",
               },
               {
                 en: "Each agent opens their own ratings, performance, and a profile that shows whether they are improving",
-                ar: "كل وكيل يفتح تقييماته وأداءه وملفه الذي يُظهر إن كان يتحسن",
+                ar: "تمكين كل موظف من مراجعة تقييماته وأدائه وملفه الذي يوثّق تطوره",
               },
               {
                 en: "TV mode, plus exports for bad ratings, workforce, and overview",
-                ar: "وضع التلفاز، وتصدير التقييمات السيئة والقوى العاملة والنظرة العامة",
+                ar: "توفير وضع الشاشة، مع تصدير تقارير النظرة العامة والقوى العاملة والتقييمات السلبية",
               },
             ],
           },
@@ -336,7 +336,7 @@ export const projects: Project[] = [
       impact: {
         lead: {
           en: "Leaders decide from the numbers. Agents see their own effort, and who is available, without a manual write-up.",
-          ar: "القادة يقررون من الأرقام. والوكيل يرى جهده ومن المتاح، دون تجميع يدوي.",
+          ar: "لم تعد النتيجة مجرد لوحة أرقام، بل أصبحت سجلًا تشغيليًا مشتركًا للفريق. صار القادة يتخذون قراراتهم استنادًا إلى بيانات واضحة، وأصبح كل موظف يرى أثر عمله وتطوره ويعرف من المتاح للمساندة، دون إعداد تقارير يدوية أو البحث بين أدوات متعددة.",
         },
       },
     },
