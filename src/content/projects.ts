@@ -18,12 +18,29 @@ export type ProjectScreenshot = {
   caption?: LocalizedString;
 };
 
+export type StoryGroup = {
+  title: LocalizedString;
+  points: LocalizedString[];
+};
+
+export type StorySection = {
+  lead: LocalizedString;
+  points?: LocalizedString[];
+  groups?: StoryGroup[];
+};
+
 export type ProjectStory = {
-  issue: LocalizedString;
-  idea: LocalizedString;
-  plan: LocalizedString;
-  build: LocalizedString;
-  impact: LocalizedString;
+  issue: StorySection;
+  idea: StorySection;
+  plan: StorySection;
+  build: StorySection;
+  impact: StorySection;
+};
+
+export type LocalizedStorySection = {
+  lead: string;
+  points: string[];
+  groups: { title: string; points: string[] }[];
 };
 
 export type Project = {
@@ -57,11 +74,11 @@ export type LocalizedProject = {
     integration: string;
   };
   story: {
-    issue: string;
-    idea: string;
-    plan: string;
-    build: string;
-    impact: string;
+    issue: LocalizedStorySection;
+    idea: LocalizedStorySection;
+    plan: LocalizedStorySection;
+    build: LocalizedStorySection;
+    impact: LocalizedStorySection;
   };
 };
 
@@ -124,24 +141,203 @@ export const projects: Project[] = [
     },
     story: {
       issue: {
-        en: "I lead 12 support agents in a SaaS company. Tickets sit in Zendesk and client calls sit in Maqsam. Both products are strong, and the day still wastes time. There is no live dashboard. Nothing is readable in one look: peak hours, who is online or offline, how many tickets each agent closed, what is aging on them, CSAT, and first resolution. Workforce is the same gap. An agent must be online and active for 7.5 hours, and a lead cannot see who completed that, who is short on work, or which colleague is available. Agents also have no record of their own effort. Weekly performance has to be assembled by hand.",
-        ar: "أقود فريق دعم من 12 وكيلًا في شركة SaaS. التذاكر على Zendesk ومكالمات العملاء على Maqsam. النظامان قويان، ويوم العمليات ما زال يضيع وقتًا كثيرًا. لا توجد لوحة حية. لا يمكن التقاط المعلومة من نظرة واحدة: ساعات الذروة، من متصل ومن غير متصل، كم تذكرة أغلق كل وكيل، وما القديم عنده، ورضا العملاء، والحل من أول مرة. القوة العاملة فيها نفس الفجوة. المطلوب أن يكون الوكيل متصلًا ونشطًا 7.5 ساعة، والقائد لا يرى من أكمل ذلك ومن قصّر في العمل، ولا من من الزملاء متاح. الوكيل أيضًا لا يملك توثيقًا لجهده. أداء الأسبوع يُجمع يدويًا.",
+        lead: {
+          en: "I lead 12 support agents in a SaaS company. Tickets live in Zendesk and client calls live in Maqsam. Both products are strong, and the day still wastes time, because the operation is not live and nothing is readable in one look.",
+          ar: "أقود فريق دعم من 12 وكيلًا في شركة SaaS. التذاكر على Zendesk، ومكالمات العملاء على Maqsam. النظامان قويان، ويوم العمل ما زال يضيع وقتًا، لأن العملية ليست حية ولا تُقرأ من نظرة واحدة.",
+        },
+        points: [
+          {
+            en: "No live, on-time dashboard",
+            ar: "لا توجد لوحة حية لحظية",
+          },
+          {
+            en: "Peak hours, who is online or offline, tickets closed, and what is aging",
+            ar: "ساعات الذروة، ومن متصل ومن غير متصل، والتذاكر المغلقة، وما تقادم",
+          },
+          {
+            en: "CSAT and first resolution",
+            ar: "رضا العملاء، والحل من أول مرة",
+          },
+          {
+            en: "Workforce: who completed the required 7.5 hours online and active, and who is short on work",
+            ar: "القوة العاملة: من أكمل 7.5 ساعة متصلًا ونشطًا، ومن قصّر في العمل",
+          },
+          {
+            en: "Agents cannot see which colleague is available",
+            ar: "الوكيل لا يرى أي زميل متاح",
+          },
+          {
+            en: "An agent's own work and effort are not documented",
+            ar: "عمل الوكيل وجهده غير موثّقين",
+          },
+          {
+            en: "Weekly performance is assembled by hand",
+            ar: "أداء الأسبوع يُجمع يدويًا",
+          },
+        ],
       },
       idea: {
-        en: "A support operations dashboard on top of Zendesk and Maqsam that answers the questions the team already asks. Document the work. Show who is carrying the queue. Give leaders numbers they can decide from: when is peak, what should we do, which channel is loudest, which ticket types are arriving, why calls or emails spike at this hour, who should be promoted, who is best by the numbers, who is not, who is improving, who is not, why this agent's performance is off, and who is affecting the team.",
-        ar: "لوحة عمليات دعم فوق Zendesk وMaqsam تجيب الأسئلة التي يسألها الفريق أصلًا. توثّق العمل. تُظهر من يحمل الطابور. تعطي القادة أرقامًا يقررون بها: متى الذروة، وماذا نفعل، وأي قناة الأكثر، وأي أنواع التذاكر تصل، ولماذا تكثر المكالمات أو الإيميلات في هذا الوقت، ومن يستحق الترقية، ومن الأفضل بالأرقام ومن ليس كذلك، ومن يتحسن ومن لا يتحسن، ولماذا أداء هذا الوكيل ليس في أفضل حال، ومن يؤثر على الفريق.",
+        lead: {
+          en: "The dashboard documents the work, raises agent performance, and gives leaders the numbers for a decision.",
+          ar: "اللوحة توثّق العمل، وترفع أداء الوكلاء، وتعطي القادة الأرقام التي يُبنى عليها القرار.",
+        },
+        points: [
+          {
+            en: "When is peak, and what should we do?",
+            ar: "متى الذروة، وماذا نفعل؟",
+          },
+          {
+            en: "Which channel is loudest, and which ticket types are arriving?",
+            ar: "أي قناة الأكثر، وأي أنواع التذاكر تصل؟",
+          },
+          {
+            en: "Why are calls or emails spiking at this hour?",
+            ar: "لماذا تكثر المكالمات أو الرسائل في هذا الوقت؟",
+          },
+          {
+            en: "Who should be promoted, who is best by the numbers, and who is not?",
+            ar: "من يستحق الترقية، ومن الأفضل بالأرقام، ومن ليس كذلك؟",
+          },
+          {
+            en: "Who is improving, and who is not?",
+            ar: "من يتحسن، ومن لا يتحسن؟",
+          },
+          {
+            en: "Why is this agent's performance off, and who is affecting the team?",
+            ar: "لماذا أداء هذا الوكيل ليس في أفضل حال، ومن يؤثر على الفريق؟",
+          },
+        ],
       },
       plan: {
-        en: "Leave Zendesk and Maqsam as the systems of record. Put a live layer in front of them: four working tabs, plus settings that control every metric. Overview for the current operation. Workforce for each agent's queue, lateness, and old tickets. Active Jira for cards the team reported, ordered by client size and people affected. Bad ratings for the reason behind a low score, then a path to the product team. Each agent gets a profile. Performance emails go out weekly, monthly, and quarterly. TV mode runs the floor. Exports cover bad ratings, workforce, and overview.",
-        ar: "نبقي Zendesk وMaqsam مصدر الحقيقة. أمامهما طبقة حية: أربعة تبويبات عمل، وإعدادات تتحكم في كل مقياس. النظرة العامة للعملية الحالية. القوى العاملة لطابور كل وكيل وتأخره والتذاكر القديمة. Jira النشطة للبطاقات التي بلّغها الفريق، مرتبة حسب حجم العميل وعدد المتأثرين. التقييمات السيئة لسبب التقييم ثم تمرير ما يخص فريق المنتج. لكل وكيل ملفه. رسائل الأداء تخرج أسبوعيًا وشهريًا وربع سنوي. وضع التلفاز لقاعة الفريق. التصدير يغطي التقييمات السيئة والقوى العاملة والنظرة العامة.",
+        lead: {
+          en: "Zendesk and Maqsam stay the systems of record. One operations layer sits in front of them.",
+          ar: "Zendesk وMaqsam يبقيان مصدر الحقيقة. وأمامهما طبقة عمليات واحدة.",
+        },
+        points: [
+          {
+            en: "Four working tabs",
+            ar: "أربعة تبويبات عمل",
+          },
+          {
+            en: "Settings for every metric",
+            ar: "إعدادات تتحكم في كل مقياس",
+          },
+          {
+            en: "A profile for each agent",
+            ar: "ملف لكل وكيل",
+          },
+          {
+            en: "Weekly, monthly, and quarterly performance emails",
+            ar: "رسائل أداء أسبوعية وشهرية وربع سنوية",
+          },
+          {
+            en: "TV mode for the floor",
+            ar: "وضع تلفاز لقاعة الفريق",
+          },
+          {
+            en: "Exports for bad ratings, workforce, and overview",
+            ar: "تصدير تقارير التقييمات السيئة والقوى العاملة والنظرة العامة",
+          },
+        ],
       },
       build: {
-        en: "Overview is the live picture of the current operation: the queue, the metrics, top performance, ticket-type volume, tickets per channel, and yesterday's hero.\n\nWorkforce breaks down each agent's queue and metrics: who is late and by how many minutes, who is online and who is not, who holds the largest number of tickets, and one place for the team's old tickets so help goes where it is actually needed.\n\nActive Jira lists the cards the team reported, with priority based on client size and how many people the issue affects.\n\nBad ratings shows who rated poorly, why, the comment, the tier, and the cause: a feature request, bad service, a system limitation, or wrong information. The tab is used to raise team performance and to forward product cases that are not a service failure.\n\nSettings is where every metric is controlled. The system emails each agent a performance report weekly, monthly, and quarterly. Each agent can open their own bad ratings, their performance, and a profile that shows whether they are improving. TV mode is included. Reports export for bad ratings, workforce, and overview.",
-        ar: "النظرة العامة هي صورة العملية الحالية: الطابور، والمقاييس، والأداء الأعلى، وكمية كل نوع تذكرة، وعدد التذاكر في كل قناة، وبطل الأمس.\n\nالقوى العاملة تفصّل طابور كل وكيل ومقاييسه: من تأخر وبكم دقيقة، ومن متصل ومن ليس كذلك، ومن معه أكبر عدد من التذاكر، ومكان واحد لتذاكر الفريق القديمة حتى تذهب المساعدة حيث تحتاج فعلًا.\n\nJira النشطة تعرض كل البطاقات التي بلّغها الفريق، وأولويتها حسب حجم العميل وعدد المتأثرين بالمشكلة.\n\nالتقييمات السيئة تعرض من قيّم تقييمًا سيئًا، ولماذا، والتعليق، والفئة، والسبب: طلب ميزة، أم خدمة سيئة، أم حد في النظام، أم معلومة خاطئة. التبويب يرفع أداء الفريق ويمرّر لفريق المنتج ما ليس فشل خدمة.\n\nالإعدادات هي مكان التحكم في كل مقياس. النظام يرسل لكل وكيل تقرير أداء أسبوعيًا وشهريًا وربع سنوي. كل وكيل يرى تقييماته السيئة وأداءه وملفه الذي يُظهر إن كان يتحسن. يوجد وضع تلفاز. وتُصدَّر تقارير التقييمات السيئة والقوى العاملة والنظرة العامة.",
+        lead: {
+          en: "Four tabs run the day. Settings, reports, profiles, TV mode, and exports sit around them.",
+          ar: "أربعة تبويبات تدير اليوم. وحولها الإعدادات والتقارير وملفات الوكلاء ووضع التلفاز والتصدير.",
+        },
+        groups: [
+          {
+            title: { en: "Overview", ar: "النظرة العامة" },
+            points: [
+              {
+                en: "Current queue, metrics, and top performance",
+                ar: "الطابور الحالي، والمقاييس، والأداء الأعلى",
+              },
+              {
+                en: "Ticket-type volume and tickets per channel",
+                ar: "كمية كل نوع تذكرة، وعدد التذاكر في كل قناة",
+              },
+              {
+                en: "Yesterday's hero",
+                ar: "بطل الأمس",
+              },
+            ],
+          },
+          {
+            title: { en: "Workforce", ar: "القوى العاملة" },
+            points: [
+              {
+                en: "Each agent's queue and metrics",
+                ar: "طابور كل وكيل ومقاييسه",
+              },
+              {
+                en: "Who is late, and by how many minutes",
+                ar: "من تأخر، وبكم دقيقة",
+              },
+              {
+                en: "Who is online, and who holds the largest queue",
+                ar: "من متصل، ومن معه أكبر طابور",
+              },
+              {
+                en: "The team's old tickets in one place, so help goes where it is needed",
+                ar: "تذاكر الفريق القديمة في مكان واحد، حتى تذهب المساعدة حيث تحتاج",
+              },
+            ],
+          },
+          {
+            title: { en: "Active Jira", ar: "Jira النشطة" },
+            points: [
+              {
+                en: "Cards the team reported",
+                ar: "البطاقات التي بلّغها الفريق",
+              },
+              {
+                en: "Priority by client size and how many people the issue affects",
+                ar: "الأولوية حسب حجم العميل وعدد المتأثرين",
+              },
+            ],
+          },
+          {
+            title: { en: "Bad ratings", ar: "التقييمات السيئة" },
+            points: [
+              {
+                en: "Who rated poorly, why, the comment, and the tier",
+                ar: "من قيّم تقييمًا سيئًا، ولماذا، والتعليق، والفئة",
+              },
+              {
+                en: "The cause: a feature request, bad service, a system limit, or wrong information",
+                ar: "السبب: طلب ميزة، أو خدمة سيئة، أو حد في النظام، أو معلومة خاطئة",
+              },
+              {
+                en: "Used to coach the team, and to send product what is not a service failure",
+                ar: "للتدريب على أداء الفريق، ولتمرير ما ليس فشل خدمة إلى فريق المنتج",
+              },
+            ],
+          },
+          {
+            title: { en: "Settings and reports", ar: "الإعدادات والتقارير" },
+            points: [
+              {
+                en: "Every metric is controlled from settings",
+                ar: "كل مقياس يُضبط من الإعدادات",
+              },
+              {
+                en: "Each agent opens their own ratings, performance, and a profile that shows whether they are improving",
+                ar: "كل وكيل يفتح تقييماته وأداءه وملفه الذي يُظهر إن كان يتحسن",
+              },
+              {
+                en: "TV mode, plus exports for bad ratings, workforce, and overview",
+                ar: "وضع التلفاز، وتصدير التقييمات السيئة والقوى العاملة والنظرة العامة",
+              },
+            ],
+          },
+        ],
       },
       impact: {
-        en: "Leaders and management get the information for an accurate decision: peak time, the loudest channel, the ticket types coming in, who to promote, who is best by the numbers, who is improving, and who is affecting the team. Agents see their own work documented, know who is available in one look, and receive their performance without a manual write-up.",
-        ar: "القادة والإدارة يحصلون على المعلومة التي تُبنى عليها قرارات أدق: وقت الذروة، والقناة الأكثر، وأنواع التذاكر القادمة، ومن يُرقّى، ومن الأفضل بالأرقام، ومن يتحسن، ومن يؤثر على الفريق. الوكيل يرى عمله موثّقًا، ويعرف من المتاح بنظرة واحدة، ويصله أداؤه دون تجميع يدوي.",
+        lead: {
+          en: "Leaders decide from the numbers. Agents see their own effort, and who is available, without a manual write-up.",
+          ar: "القادة يقررون من الأرقام. والوكيل يرى جهده ومن المتاح، دون تجميع يدوي.",
+        },
       },
     },
   },
@@ -203,24 +399,34 @@ export const projects: Project[] = [
     },
     story: {
       issue: {
-        en: "Payroll lived in Google Sheets, and employees still waited on someone to build and send each payslip by hand.",
-        ar: "الرواتب كانت في جداول Google، والموظفون ما زالوا ينتظرون من يبني ويرسل كل قسيمة يدويًا.",
+        lead: {
+          en: "Payroll lived in Google Sheets, and employees still waited on someone to build and send each payslip by hand.",
+          ar: "الرواتب كانت في جداول Google، والموظفون ما زالوا ينتظرون من يبني ويرسل كل قسيمة يدويًا.",
+        },
       },
       idea: {
-        en: "Turn those sheets into a smart dashboard that emails a detailed payslip to each employee.",
-        ar: "تحويل تلك الجداول إلى لوحة ذكية ترسل قسيمة مفصّلة لكل موظف بالبريد.",
+        lead: {
+          en: "Turn those sheets into a smart dashboard that emails a detailed payslip to each employee.",
+          ar: "تحويل تلك الجداول إلى لوحة ذكية ترسل قسيمة مفصّلة لكل موظف بالبريد.",
+        },
       },
       plan: {
-        en: "Map the sheet columns to payslip fields, design the dashboard, then automate the email send so payroll does not stay manual.",
-        ar: "ربط أعمدة الجدول بحقول القسيمة، تصميم اللوحة، ثم أتمتة الإرسال حتى لا يبقى العمل يدويًا.",
+        lead: {
+          en: "Map the sheet columns to payslip fields, design the dashboard, then automate the email send so payroll does not stay manual.",
+          ar: "ربط أعمدة الجدول بحقول القسيمة، تصميم اللوحة، ثم أتمتة الإرسال حتى لا يبقى العمل يدويًا.",
+        },
       },
       build: {
-        en: "Built the dashboard on top of Google Sheets and the email flow that delivers a detailed payslip to each employee.",
-        ar: "بُنيت اللوحة فوق جداول Google ومسار البريد الذي يوصل قسيمة مفصّلة لكل موظف.",
+        lead: {
+          en: "Built the dashboard on top of Google Sheets and the email flow that delivers a detailed payslip to each employee.",
+          ar: "بُنيت اللوحة فوق جداول Google ومسار البريد الذي يوصل قسيمة مفصّلة لكل موظف.",
+        },
       },
       impact: {
-        en: "Payslips go out from the sheet without the manual loop. (Replace with your measured outcomes.)",
-        ar: "القسائم تخرج من الجدول دون الحلقة اليدوية. (استبدل بنتائجك المقاسة.)",
+        lead: {
+          en: "Payslips go out from the sheet without the manual loop. (Replace with your measured outcomes.)",
+          ar: "القسائم تخرج من الجدول دون الحلقة اليدوية. (استبدل بنتائجك المقاسة.)",
+        },
       },
     },
   },
@@ -282,24 +488,34 @@ export const projects: Project[] = [
     },
     story: {
       issue: {
-        en: "Requests between departments stalled in email and chat. Ownership over requests and client demands was unclear, and delays piled up because nobody escalated them.",
-        ar: "الطلبات بين الأقسام تتوقف في البريد والدردشة. الملكية على الطلبات ومتطلبات العملاء غير واضحة، والتأخير يتراكم لأن لا أحد يصعّدها.",
+        lead: {
+          en: "Requests between departments stalled in email and chat. Ownership over requests and client demands was unclear, and delays piled up because nobody escalated them.",
+          ar: "الطلبات بين الأقسام تتوقف في البريد والدردشة. الملكية على الطلبات ومتطلبات العملاء غير واضحة، والتأخير يتراكم لأن لا أحد يصعّدها.",
+        },
       },
       idea: {
-        en: "An organized request path with a clear owner, and a system that escalates on its own so work does not sit.",
-        ar: "مسار طلب منظّم بمالك واضح، ونظام يصعّد بنفسه حتى لا يبقى العمل معلّقًا.",
+        lead: {
+          en: "An organized request path with a clear owner, and a system that escalates on its own so work does not sit.",
+          ar: "مسار طلب منظّم بمالك واضح، ونظام يصعّد بنفسه حتى لا يبقى العمل معلّقًا.",
+        },
       },
       plan: {
-        en: "Define ownership at each step, model the request states, and set escalation rules that fire when a request waits too long.",
-        ar: "تحديد الملكية في كل خطوة، ونمذجة حالات الطلب، ووضع قواعد تصعيد تعمل عندما يتأخر الطلب.",
+        lead: {
+          en: "Define ownership at each step, model the request states, and set escalation rules that fire when a request waits too long.",
+          ar: "تحديد الملكية في كل خطوة، ونمذجة حالات الطلب، ووضع قواعد تصعيد تعمل عندما يتأخر الطلب.",
+        },
       },
       build: {
-        en: "Built request creation, ownership, and automatic escalation so departments and client demands keep moving.",
-        ar: "بُني إنشاء الطلب والملكية والتصعيد التلقائي حتى تستمر الأقسام ومتطلبات العملاء في الحركة.",
+        lead: {
+          en: "Built request creation, ownership, and automatic escalation so departments and client demands keep moving.",
+          ar: "بُني إنشاء الطلب والملكية والتصعيد التلقائي حتى تستمر الأقسام ومتطلبات العملاء في الحركة.",
+        },
       },
       impact: {
-        en: "Fewer stalled requests between departments, because ownership is explicit and the system escalates delays. (Add your before/after numbers here.)",
-        ar: "طلبات متوقفة أقل بين الأقسام، لأن الملكية صريحة والنظام يصعّد التأخير. (أضف أرقامك قبل/بعد هنا.)",
+        lead: {
+          en: "Fewer stalled requests between departments, because ownership is explicit and the system escalates delays. (Add your before/after numbers here.)",
+          ar: "طلبات متوقفة أقل بين الأقسام، لأن الملكية صريحة والنظام يصعّد التأخير. (أضف أرقامك قبل/بعد هنا.)",
+        },
       },
     },
   },
@@ -361,28 +577,52 @@ export const projects: Project[] = [
     },
     story: {
       issue: {
-        en: "I wanted a space to push craft and ideas that do not fit a sprint board — without waiting for permission.",
-        ar: "أردت مساحة لدفع الحرفة والأفكار التي لا تناسب لوحة السبرنت — دون انتظار إذن.",
+        lead: {
+          en: "I wanted a space to push craft and ideas that do not fit a sprint board — without waiting for permission.",
+          ar: "أردت مساحة لدفع الحرفة والأفكار التي لا تناسب لوحة السبرنت — دون انتظار إذن.",
+        },
       },
       idea: {
-        en: "NYX, The Watching Eye, as a personal product lab: ship something opinionated, learn from the edges, keep the bar high.",
-        ar: "NYX، العين التي ترى كل شيء، كمختبر منتج شخصي: أشحن شيئًا له رأي، وأتعلم من الحواف، وأبقي المعيار مرتفعًا.",
+        lead: {
+          en: "NYX, The Watching Eye, as a personal product lab: ship something opinionated, learn from the edges, keep the bar high.",
+          ar: "NYX، العين التي ترى كل شيء، كمختبر منتج شخصي: أشحن شيئًا له رأي، وأتعلم من الحواف، وأبقي المعيار مرتفعًا.",
+        },
       },
       plan: {
-        en: "Scope a vertical slice, design the feeling first, then build the smallest system that still feels intentional.",
-        ar: "تحديد شريحة عمودية، تصميم الإحساس أولًا، ثم بناء أصغر نظام ما زال يبدو مقصودًا.",
+        lead: {
+          en: "Scope a vertical slice, design the feeling first, then build the smallest system that still feels intentional.",
+          ar: "تحديد شريحة عمودية، تصميم الإحساس أولًا، ثم بناء أصغر نظام ما زال يبدو مقصودًا.",
+        },
       },
       build: {
-        en: "Iterated UI, flows, and interaction details. Treated polish as part of the learning, not a leftover.",
-        ar: "تكرار على الواجهة والمسارات وتفاصيل التفاعل. التلميع جزء من التعلم لا بقية مؤجلة.",
+        lead: {
+          en: "Iterated UI, flows, and interaction details. Treated polish as part of the learning, not a leftover.",
+          ar: "تكرار على الواجهة والمسارات وتفاصيل التفاعل. التلميع جزء من التعلم لا بقية مؤجلة.",
+        },
       },
       impact: {
-        en: "A sharper product sense and a portfolio piece that shows how I think when the constraints are mine. (Expand with what you shipped.)",
-        ar: "حس منتج أحدّ وقطعة معرض تُظهر كيف أفكر عندما تكون القيود ملكي. (وسّع بما شحنته.)",
+        lead: {
+          en: "A sharper product sense and a portfolio piece that shows how I think when the constraints are mine. (Expand with what you shipped.)",
+          ar: "حس منتج أحدّ وقطعة معرض تُظهر كيف أفكر عندما تكون القيود ملكي. (وسّع بما شحنته.)",
+        },
       },
     },
   },
 ];
+
+function localizeSection(
+  section: StorySection,
+  locale: Locale,
+): LocalizedStorySection {
+  return {
+    lead: section.lead[locale],
+    points: (section.points ?? []).map((point) => point[locale]),
+    groups: (section.groups ?? []).map((group) => ({
+      title: group.title[locale],
+      points: group.points.map((point) => point[locale]),
+    })),
+  };
+}
 
 export function localizeProject(
   project: Project,
@@ -408,11 +648,11 @@ export function localizeProject(
       integration: project.metrics.integration[locale],
     },
     story: {
-      issue: project.story.issue[locale],
-      idea: project.story.idea[locale],
-      plan: project.story.plan[locale],
-      build: project.story.build[locale],
-      impact: project.story.impact[locale],
+      issue: localizeSection(project.story.issue, locale),
+      idea: localizeSection(project.story.idea, locale),
+      plan: localizeSection(project.story.plan, locale),
+      build: localizeSection(project.story.build, locale),
+      impact: localizeSection(project.story.impact, locale),
     },
   };
 }

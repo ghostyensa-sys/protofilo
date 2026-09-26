@@ -49,7 +49,7 @@ export function FeaturedTeaser({
                 {dictionary.stages[key]}
               </p>
               <p className="mt-3 line-clamp-5 text-sm leading-relaxed text-[var(--ink-soft)]">
-                {project.story[key]}
+                {project.story[key].lead}
               </p>
             </motion.div>
           ))}
