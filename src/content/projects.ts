@@ -143,79 +143,79 @@ export const projects: Project[] = [
       issue: {
         lead: {
           en: "I lead 12 support agents in a SaaS company. Zendesk holds the tickets and Maqsam holds the calls. Each system showed a piece of the day, and neither showed the floor as one live operation.",
-          ar: "أقود فريق دعم من 12 موظفًا في شركة برمجيات كخدمة. التذاكر في Zendesk والمكالمات في Maqsam. كل نظام يعرض جزءًا من اليوم، ولا يعرض أي منهما أرضية الدعم كعملية واحدة ولحظية.",
+          ar: "بصفتي قائد فريق دعم يضم 12 موظفًا في شركة تقدم خدماتها بنظام البرمجيات كخدمة، كانت التذاكر تُدار عبر Zendesk والمكالمات عبر Maqsam. النظامان قويان، لكن صورة اليوم كانت موزعة بينهما، وكنا نعيد جمعها يدويًا حتى نعرف ماذا يحدث فعلًا.",
         },
         points: [
           {
             en: "Queue health, hourly pressure, channel mix, quality, speed, attendance, and workload could not be read together",
-            ar: "صحة الطابور وضغط الساعة ومزيج القنوات والجودة والسرعة والحضور وحجم العمل لم تكن تُقرأ معًا",
+            ar: "لم تكن هناك شاشة واحدة تجمع حالة طابور التذاكر، وضغط العمل، وقنوات التواصل، وجودة الخدمة، وسرعة الرد، والحضور، وحجم العمل",
           },
           {
             en: "Old tickets and Jira-linked cases were hard to rank before they became escalations",
-            ar: "التذاكر المتقادمة والحالات المرتبطة بـ Jira كان يصعب ترتيبها قبل أن تتحول إلى تصعيد",
+            ar: "التذاكر المتأخرة والحالات المرتبطة بـ Jira كانت تظهر متأخرة، بعد أن يبدأ التصعيد",
           },
           {
             en: "Attendance had no minute-by-minute record against the required availability",
-            ar: "الحضور بلا سجل بالدقيقة يُقاس على ساعات التوفر المطلوبة",
+            ar: "لم يتوفر سجل دقيق بالدقيقة للحضور وساعات التوفر المطلوبة",
           },
           {
             en: "Bad ratings had no consistent follow-up path from the score to a closed action",
-            ar: "التقييمات السلبية بلا مسار متابعة ثابت من الدرجة حتى إغلاق الإجراء",
+            ar: "التقييمات السلبية لم يكن لها مسار متابعة واضح، من الملاحظة حتى إغلاق الإجراء",
           },
           {
             en: "Comparing people and writing the weekly report meant rebuilding the day by hand",
-            ar: "مقارنة الأداء وكتابة تقرير الأسبوع كانا يعنيان إعادة بناء اليوم يدويًا",
+            ar: "مقارنة أداء الموظفين وتجهيز تقرير الأسبوع كانا يتمان بشكل يدوي",
           },
         ],
       },
       idea: {
         lead: {
           en: "Turn the scattered service data into a floor that can be run: where pressure is building, who needs help, and what needs an action now.",
-          ar: "تحويل بيانات الخدمة المتفرقة إلى أرضية يمكن إدارتها: أين يتراكم الضغط، ومن يحتاج مساعدة، وما الذي يحتاج إجراءً الآن.",
+          ar: "الفكرة لم تكن لوحة إضافية مليئة بالأرقام. كنت أحتاج شاشة تشغيل واحدة توضح لي مباشرة أين يرتفع الضغط، ومن يحتاج دعمًا، وما الإجراء المطلوب الآن.",
         },
         points: [
           {
             en: "Show peak hour, channel, and ticket type before the queue gets stuck",
-            ar: "إظهار ساعة الذروة والقناة ونوع التذكرة قبل أن يعلق الطابور",
+            ar: "معرفة ساعة الذروة، والقناة الأعلى طلبًا، ونوع التذكرة قبل أن يتراكم الطابور",
           },
           {
             en: "Balance a person across productivity, workload, quality, speed, attendance, and availability",
-            ar: "قراءة الموظف عبر الإنتاجية وحجم العمل والجودة والسرعة والحضور والتوفر",
+            ar: "تقييم الموظف بصورة متوازنة: الإنتاجية، وحجم العمل، والجودة، وسرعة الرد، والحضور، والتوفر",
           },
           {
             en: "Keep a line from the ticket to the Jira card or the bad rating, then to the follow-up",
-            ar: "الإبقاء على خط من التذكرة إلى بطاقة Jira أو التقييم السلبي ثم إلى المتابعة",
+            ar: "ربط التذكرة ببطاقة Jira أو التقييم السلبي، ثم بخطوة المتابعة",
           },
           {
             en: "Answer who is improving, who needs cover, and who is affecting the team",
-            ar: "الإجابة عن من يتحسن، ومن يحتاج تغطية، ومن يؤثر في الفريق",
+            ar: "توضيح من يتحسن، ومن يحتاج تغطية في العمل، ومن يؤثر أداؤه في الفريق",
           },
         ],
       },
       plan: {
         lead: {
           en: "Leave Zendesk and Maqsam as the systems of record. Put one operations layer in front of them, with different depth for agents, leads, and administrators.",
-          ar: "يبقى Zendesk وMaqsam مصدر البيانات. وأمامهما طبقة تشغيل واحدة، بعمق مختلف للموظف وقائد الفريق والمسؤول.",
+          ar: "أبقينا Zendesk وMaqsam مصدرًا للبيانات، وبنينا فوقهما طبقة تشغيل واحدة. كل من الموظف وقائد الفريق والمسؤول يرى المستوى المناسب لدوره.",
         },
         points: [
           {
             en: "Live and past ranges, team filters, period compare, refresh, TV mode, and CSV export",
-            ar: "عرض لحظي وتاريخي، وتصفية الفرق، ومقارنة الفترات، والتحديث، ووضع الشاشة، وتصدير CSV",
+            ar: "عرض مباشر وعرض للفترات السابقة، مع التصفية حسب الفريق والتاريخ، ومقارنة الفترات، والتحديث، وTV Mode، وتصدير CSV",
           },
           {
             en: "Agent profiles and recurring performance mail",
-            ar: "ملف لكل موظف وبريد أداء دوري",
+            ar: "ملف أداء لكل موظف، وتقارير دورية تصله على بريده",
           },
           {
             en: "A roster, attendance policy, metric weights, integrations, and security controls that a lead can actually set",
-            ar: "كشف موظفين وسياسة حضور وأوزان مؤشرات وتكاملات وضوابط أمن يضبطها القائد فعلًا",
+            ar: "قائمة الفريق والأدوار، وسياسة الحضور، وأوزان المؤشرات، والتكاملات، وضوابط الأمان، وكلها قابلة للضبط من داخل النظام",
           },
         ],
       },
       build: {
         lead: {
           en: "The day runs from four tabs. Around them sit settings, reports, profiles, TV mode, and export.",
-          ar: "اليوم يُدار من أربعة تبويبات. وحولها الإعدادات والتقارير وملفات الموظفين ووضع الشاشة والتصدير.",
+          ar: "أصبح يوم الفريق يُدار من أربعة أقسام واضحة، وتتصل بها الإعدادات والتقارير وملفات الموظفين وTV Mode وخيارات التصدير.",
         },
         groups: [
           {
@@ -223,23 +223,23 @@ export const projects: Project[] = [
             points: [
               {
                 en: "Queue health for the floor and for each team, with today's top performers and yesterday's champion",
-                ar: "صحة الطابور للأرضية ولكل فريق، مع الأفضل اليوم وبطل الأمس",
+                ar: "حالة طابور التذاكر للفريق كاملًا ولكل قسم، مع أفضل أداء اليوم وبطل الأمس",
               },
               {
                 en: "A live feed of positive ratings beside the day's leaderboard",
-                ar: "بث مباشر للتقييمات الإيجابية إلى جانب ترتيب اليوم",
+                ar: "التقييمات الإيجابية تظهر مباشرة إلى جانب ترتيب أداء اليوم",
               },
               {
                 en: "Received, old, open, pending, and solved, plus CSAT, first response, and resolution time",
-                ar: "الوارد والمتقادم والمفتوح والمعلّق والمحلول، مع رضا العملاء وأول رد وزمن الحل",
+                ar: "أرقام واضحة: التذاكر الواردة، والمتأخرة، والمفتوحة، والمعلقة، والمحلولة، مع رضا العملاء وسرعة أول رد وزمن الإغلاق",
               },
               {
                 en: "Ticket types, an hourly pressure curve, channel mix, and a comparison between teams",
-                ar: "أنواع التذاكر ومنحنى الضغط حسب الساعة ومزيج القنوات ومقارنة الفرق",
+                ar: "توزيع أنواع التذاكر، وضغط العمل حسب الساعة، وتوزيع قنوات التواصل، ومقارنة أداء الفرق",
               },
               {
                 en: "Date range, period compare, refresh, promotion view, CSV export, and TV mode",
-                ar: "نطاق التاريخ ومقارنة الفترات والتحديث وعرض الترقيات وتصدير CSV ووضع الشاشة",
+                ar: "اختيار التاريخ، ومقارنة الفترات، والتحديث، وعرض الترشيحات للترقية، وتصدير CSV، وTV Mode",
               },
             ],
           },
@@ -248,27 +248,27 @@ export const projects: Project[] = [
             points: [
               {
                 en: "An attention strip when a backlog or pending load is abnormal",
-                ar: "شريط تنبيه عندما يكون التراكم أو المعلّق خارج المعتاد",
+                ar: "تنبيه واضح إذا زاد التراكم أو عدد التذاكر المعلقة عن الوضع الطبيعي",
               },
               {
                 en: "A leaderboard for queue, received, old, helped-in, channels, status, and speed",
-                ar: "ترتيب للطابور والوارد والمتقادم والمساعدة والقنوات والحالة والسرعة",
+                ar: "ترتيب لكل موظف يوضح الطابور، والتذاكر الواردة، والمتأخرة، والمساعدة، والقنوات، والحالة، وسرعة العمل",
               },
               {
                 en: "Past-shift correction, approved excuses, and a performance export for a date range",
-                ar: "تصحيح وردية سابقة وأعذار معتمدة وتصدير أداء لنطاق تاريخ",
+                ar: "تصحيح بيانات شفت سابق، وتسجيل الأعذار المعتمدة، وتصدير تقرير الأداء حسب الفترة",
               },
               {
                 en: "Status cards and a minute log for Online, Maqsam, Zoom, Break, Away, Transfer, and Offline",
-                ar: "بطاقات حالة وسجل بالدقيقة: متصل، وMaqsam، وZoom، واستراحة، وبعيد، وتحويل، وغير متصل",
+                ar: "بطاقات حالة مع سجل الحضور بالدقيقة: متصل، وMaqsam، وZoom، واستراحة، وبعيد، وتحويل، وغير متصل",
               },
               {
                 en: "Availability against the shift target, first online time, and offline time",
-                ar: "التوفر مقابل هدف الوردية، ووقت أول اتصال، ووقت عدم الاتصال",
+                ar: "مقارنة ساعات التوفر مع هدف الشفت، مع وقت أول اتصال ووقت عدم الاتصال",
               },
               {
                 en: "An old-ticket bench filtered by person, channel, tier, age, Jira, and reason, grouped by agent, with a morning pack and export",
-                ar: "طاولة للتذاكر المتقادمة تُصفّى بالشخص والقناة والفئة والعمر وJira والسبب، وتُجمّع حسب الموظف، مع حزمة الصباح والتصدير",
+                ar: "شاشة للتذاكر المتأخرة، مع تصفية حسب الموظف والقناة والفئة والعمر وJira وسبب التأخير، وتجميع حسب الموظف، وملخص بداية اليوم، والتصدير",
               },
             ],
           },
@@ -277,15 +277,15 @@ export const projects: Project[] = [
             points: [
               {
                 en: "Open cards by agent and team, with priority, tier, age, ticket count, and the linked Zendesk tickets",
-                ar: "البطاقات المفتوحة حسب الموظف والفريق، مع الأولوية والفئة والعمر وعدد التذاكر وتذاكر Zendesk المرتبطة",
+                ar: "البطاقات المفتوحة حسب الموظف والفريق، مع الأولوية والفئة وعمر التذكرة وعدد المتأثرين وتذاكر Zendesk المرتبطة",
               },
               {
                 en: "Filters for urgent and aged work, search, a morning pack, and export",
-                ar: "تصفية للعاجل والمتقادم، وبحث، وحزمة صباح، وتصدير",
+                ar: "تصفية للحالات العاجلة والمتأخرة، مع البحث وملخص بداية اليوم والتصدير",
               },
               {
                 en: "A resolved history by month, with search, export, and a full history load",
-                ar: "سجل للبطاقات المحلولة حسب الشهر، مع بحث وتصدير وتحميل السجل كاملًا",
+                ar: "سجل للبطاقات التي تم حلها حسب الشهر، مع البحث والتصدير وإمكانية تحميل السجل كاملًا",
               },
             ],
           },
@@ -294,19 +294,19 @@ export const projects: Project[] = [
             points: [
               {
                 en: "A follow-up line: total, needs action, action done, contacted, and email sent",
-                ar: "خط متابعة: الإجمالي، ويحتاج إجراءً، وتم الإجراء، وتم التواصل، وأُرسل البريد",
+                ar: "مسار متابعة الجودة واضح: الإجمالي، ويحتاج إلى إجراء، وتم الإجراء، وتم التواصل، وتم إرسال البريد",
               },
               {
                 en: "Filters for agent, team, channel, tier, reason, feature request, action state, date, and comment",
-                ar: "تصفية بالموظف والفريق والقناة والفئة والسبب وطلب الميزة وحالة الإجراء والتاريخ والتعليق",
+                ar: "تصفية حسب الموظف والفريق والقناة والفئة والسبب وطلب الميزة وحالة الإجراء والتاريخ والتعليق",
               },
               {
                 en: "Customer, owner, reason, Jira link, and follow-up status on the same row",
-                ar: "العميل والمالك والسبب ورابط Jira وحالة المتابعة في الصف نفسه",
+                ar: "بيانات العميل، ومسؤول المتابعة، والسبب، ورابط Jira، وحالة الإجراء تظهر في السطر نفسه",
               },
               {
                 en: "Coaching stays with the team; product and system limits go to the team that owns them",
-                ar: "التوجيه يبقى مع الفريق، وقيود المنتج والنظام تذهب إلى الفريق المعني",
+                ar: "ملاحظات الخدمة تبقى داخل الفريق للتوجيه، وملاحظات المنتج أو قيود النظام تُحوَّل إلى الفريق المختص",
               },
             ],
           },
@@ -315,11 +315,11 @@ export const projects: Project[] = [
             points: [
               {
                 en: "Organization name, hours, and timezone",
-                ar: "اسم الجهة وساعات العمل والمنطقة الزمنية",
+                ar: "اسم الجهة، وساعات الدوام، والمنطقة الزمنية",
               },
               {
                 en: "People and roster",
-                ar: "الموظفون والكشف",
+                ar: "قائمة الفريق والأدوار",
               },
               {
                 en: "Reports and email",
@@ -331,7 +331,7 @@ export const projects: Project[] = [
               },
               {
                 en: "TV keys, PIN, and lockdown",
-                ar: "مفاتيح الشاشة والرمز وقف التشغيل",
+                ar: "مفاتيح TV Mode، والرمز السري، والإغلاق الطارئ",
               },
               {
                 en: "Metric weights and the attendance policy",
@@ -344,24 +344,24 @@ export const projects: Project[] = [
       impact: {
         lead: {
           en: "The floor is one picture instead of a reconstruction across tools. Leaders step in earlier, and agents can see their own effort and who is available.",
-          ar: "أصبحت الأرضية صورة واحدة بدل إعادة تركيبها من أدوات متفرقة. يتدخل القادة أبكر، ويرى الموظف جهده ومن هو متاح.",
+          ar: "صارت صورة اليوم واضحة من مكان واحد، بدل جمعها من أكثر من نظام. وأصبح التدخل أسرع، والموظف يرى جهده ويعرف من هو المتاح للدعم.",
         },
         points: [
           {
             en: "Pressure, aging work, attendance gaps, and bad ratings surface before they sit for days",
-            ar: "يظهر الضغط والعمل المتقادم وفجوات الحضور والتقييمات السلبية قبل أن تبقى أيامًا",
+            ar: "ضغط العمل، والتذاكر المتأخرة، وفجوات الحضور، والتقييمات السلبية تظهر قبل أن تتأخر لأيام",
           },
           {
             en: "A promotion or a coaching talk rests on more than a ticket count",
-            ar: "الترقية أو جلسة التوجيه تقوم على أكثر من عدد التذاكر",
+            ar: "قرار الترقية أو جلسة التوجيه يعتمد على صورة أداء متوازنة، وليس على عدد التذاكر فقط",
           },
           {
             en: "Jira and quality histories keep the follow-up auditable",
-            ar: "سجلات Jira والجودة تُبقي المتابعة قابلة للمراجعة",
+            ar: "متابعة Jira والجودة تبقى موثقة وسهلة المراجعة",
           },
           {
             en: "Export, TV mode, and scheduled mail replace the weekly manual pack",
-            ar: "التصدير ووضع الشاشة والبريد الدوري تغني عن حزمة الأسبوع اليدوية",
+            ar: "اختصر التصدير وTV Mode والبريد الدوري تجهيز تقرير الأسبوع يدويًا",
           },
         ],
       },
