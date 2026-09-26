@@ -38,9 +38,9 @@ export function CaseStages({
               {stageLabels[key]}
             </h2>
           </div>
-          <p className="max-w-2xl text-lg leading-relaxed text-[var(--ink-soft)]">
+          <div className="max-w-3xl whitespace-pre-line text-lg leading-relaxed text-[var(--ink-soft)]">
             {story[key]}
-          </p>
+          </div>
         </motion.section>
       ))}
     </div>
