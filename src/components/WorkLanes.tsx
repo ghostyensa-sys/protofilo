@@ -29,11 +29,6 @@ function ProjectRow({
         className="group flex flex-col gap-3 border-t border-[var(--ink)]/12 py-7 transition sm:flex-row sm:items-end sm:justify-between sm:gap-10"
       >
         <div className="min-w-0">
-          <p className="mb-2 text-xs tracking-[0.16em] text-[var(--muted)] uppercase">
-            {project.level === "pro"
-              ? dictionary.work.pro
-              : dictionary.work.personal}
-          </p>
           <h3 className="font-display text-2xl tracking-tight text-[var(--ink)] transition group-hover:text-[var(--accent-deep)] sm:text-3xl">
             {project.title}
           </h3>
@@ -55,13 +50,11 @@ function ProjectRow({
 export function WorkLanes({
   locale,
   dictionary,
-  pro,
-  personal,
+  projects,
 }: {
   locale: Locale;
   dictionary: Dictionary;
-  pro: LocalizedProject[];
-  personal: LocalizedProject[];
+  projects: LocalizedProject[];
 }) {
   return (
     <section id="work" className="scroll-mt-24 px-6 py-24 sm:px-10 lg:px-16">
@@ -84,40 +77,16 @@ export function WorkLanes({
           </p>
         </motion.div>
 
-        <div className="grid gap-16 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
-          <div>
-            <h3 className="mb-2 text-sm tracking-[0.16em] text-[var(--accent-deep)] uppercase">
-              {dictionary.work.pro}
-            </h3>
-            <div>
-              {pro.map((project, index) => (
-                <ProjectRow
-                  key={project.slug}
-                  project={project}
-                  index={index}
-                  locale={locale}
-                  dictionary={dictionary}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h3 className="mb-2 text-sm tracking-[0.16em] text-[var(--accent-deep)] uppercase">
-              {dictionary.work.personal}
-            </h3>
-            <div>
-              {personal.map((project, index) => (
-                <ProjectRow
-                  key={project.slug}
-                  project={project}
-                  index={index}
-                  locale={locale}
-                  dictionary={dictionary}
-                />
-              ))}
-            </div>
-          </div>
+        <div>
+          {projects.map((project, index) => (
+            <ProjectRow
+              key={project.slug}
+              project={project}
+              index={index}
+              locale={locale}
+              dictionary={dictionary}
+            />
+          ))}
         </div>
       </div>
     </section>

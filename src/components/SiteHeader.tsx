@@ -22,6 +22,12 @@ export function SiteHeader({
         </Link>
         <nav className="flex items-center gap-3 text-sm text-[var(--ink-soft)] sm:gap-5">
           <a
+            href={`/${locale}/#services`}
+            className="hidden transition hover:text-[var(--ink)] sm:inline"
+          >
+            {dictionary.nav.services}
+          </a>
+          <a
             href={`/${locale}/#work`}
             className="hidden transition hover:text-[var(--ink)] sm:inline"
           >

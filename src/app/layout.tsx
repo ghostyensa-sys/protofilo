@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s · علي العيدروس",
   },
   description:
-    "معرض أعمال علي العيدروس — من المشكلة إلى الأثر. Ali Al Aidarous portfolio.",
+    "Practical systems for startups — dashboards, spreadsheet automation, attendance, payroll, and HR. أنظمة عملية للشركات الناشئة.",
 };
 
 export default function RootLayout({

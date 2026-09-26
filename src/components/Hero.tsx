@@ -24,9 +24,9 @@ export function Hero({ dictionary }: { dictionary: Dictionary }) {
         initial={{ opacity: 0, y: 28 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.75, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-        className="font-display max-w-5xl text-[clamp(2.75rem,9vw,6.5rem)] leading-[1.05] tracking-[-0.03em] text-[var(--ink)]"
+        className="font-display max-w-5xl text-[clamp(2.6rem,7.5vw,5.6rem)] leading-[1.08] tracking-[-0.03em] text-[var(--ink)]"
       >
-        {dictionary.hero.name}
+        {dictionary.hero.headline}
       </motion.h1>
 
       <motion.p
@@ -45,16 +45,16 @@ export function Hero({ dictionary }: { dictionary: Dictionary }) {
         className="mt-10 flex flex-wrap items-center gap-4"
       >
         <a
-          href="#work"
+          href="#services"
           className="inline-flex items-center justify-center bg-[var(--ink)] px-6 py-3 text-sm font-medium tracking-wide text-[var(--paper)] transition hover:bg-[var(--accent-deep)] hover:text-[var(--paper)]"
         >
-          {dictionary.hero.ctaWork}
+          {dictionary.hero.ctaServices}
         </a>
         <a
-          href="#contact"
+          href="#work"
           className="inline-flex items-center justify-center border border-[var(--ink)]/20 px-6 py-3 text-sm font-medium tracking-wide text-[var(--ink)] transition hover:border-[var(--accent)] hover:text-[var(--accent-deep)]"
         >
-          {dictionary.hero.ctaContact}
+          {dictionary.hero.ctaWork}
         </a>
       </motion.div>
     </section>

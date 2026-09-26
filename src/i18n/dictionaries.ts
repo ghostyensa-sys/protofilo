@@ -7,21 +7,30 @@ export type Dictionary = {
   };
   nav: {
     work: string;
+    services: string;
     contact: string;
   };
   hero: {
     eyebrow: string;
     name: string;
+    headline: string;
     lead: string;
+    ctaServices: string;
     ctaWork: string;
-    ctaContact: string;
+  };
+  services: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    cta: string;
+    modelEyebrow: string;
+    modelTitle: string;
+    modelLead: string;
   };
   work: {
     eyebrow: string;
     title: string;
     lead: string;
-    pro: string;
-    personal: string;
     openStory: string;
     loc: string;
   };
@@ -82,32 +91,41 @@ const ar: Dictionary = {
   meta: {
     title: "علي العيدروس",
     description:
-      "معرض أعمال علي العيدروس — أدوات ومنتجات تُروى من المشكلة إلى الأثر. لقطات ومقاييس فقط؛ الشيفرة خاصة.",
+      "علي العيدروس يبني أنظمة عملية للشركات الناشئة: لوحات تشغيل، أتمتة الجداول، الحضور، الرواتب، والموارد البشرية، حول طريقة العمل الحالية.",
   },
   nav: {
-    work: "الأعمال",
+    work: "الأنظمة",
+    services: "الخدمات",
     contact: "تواصل",
   },
   hero: {
-    eyebrow: "بناء منتجات وأنظمة",
+    eyebrow: "شريك مستقل لبناء أنظمة الشركات الناشئة",
     name: "علي العيدروس",
-    lead: "أصمّم وأبني أدوات داخلية ومنتجات شخصية — تُروى كقصص من المشكلة إلى الأثر.",
-    ctaWork: "شاهد الأعمال",
-    ctaContact: "تواصل",
+    headline: "وسّع عملك، وأتمت المهام المتكررة.",
+    lead: "أساعد الشركات الناشئة على النمو عبر أنظمة عملية تزيل اختناقات التشغيل والعمل المتكرر، حتى يتفرغ الفريق لما يصنع الفرق فعلًا.",
+    ctaServices: "استعرض الخدمات",
+    ctaWork: "شاهد الأنظمة",
+  },
+  services: {
+    eyebrow: "الخدمات",
+    title: "أنظمة تُبنى حول طريقة عملكم الحالية.",
+    lead: "إذا كان العمل يتم عبر واتساب أو جداول Google أو Excel، نبدأ من هناك. الهدف نظام أوضح وأسرع، لا تغيير غير ضروري.",
+    cta: "خلّنا نتكلم عن سير عملك",
+    modelEyebrow: "طريقة التعاون",
+    modelTitle: "تنفيذ مرة واحدة، وتشغيل شهري.",
+    modelLead: "النظام يُبنى لشركتك، ويبقى تحت التشغيل والصيانة مقابل اشتراك شهري. لا أسعار منشورة هنا؛ كل عمل يُسعّر بعد فهم سير العمل.",
   },
   work: {
-    eyebrow: "أعمال مختارة",
-    title: "أنظمة احترافية. حرفية شخصية.",
-    lead: "مشاريع خاصة — تُعرض عبر لقطات ومقاييس وقصة ما تغيّر. بلا مستودعات عامة.",
-    pro: "احترافي",
-    personal: "شخصي",
+    eyebrow: "الأنظمة",
+    title: "أنظمة احترافية.",
+    lead: "أنظمة حقيقية صُممت حول التشغيل القائم. كل قصة توضح المشكلة، وما بُني، والنتيجة.",
     openStory: "افتح القصة",
     loc: "سطر",
   },
   process: {
-    eyebrow: "كيف أروي العمل",
+    eyebrow: "طريقة العمل",
     title: "من المشكلة إلى الأثر.",
-    lead: "كل مشروع يتبع القوس نفسه — لترى المشكلة، والرهان، وما تغيّر فعلًا.",
+    lead: "كل نظام يمر بالمسار نفسه: نفهم العائق، نحدد الحل، نبنيه حول أدواتكم، ثم نقيس ما تغيّر.",
   },
   stages: {
     issue: "المشكلة",
@@ -122,8 +140,8 @@ const ar: Dictionary = {
   },
   contact: {
     eyebrow: "تواصل",
-    title: "لنتحدث عن البناء القادم.",
-    lead: "منفتح على المنتجات والأدوات الداخلية والتعاون المدروس.",
+    title: "قل لي ما الذي يستهلك وقت فريقك.",
+    lead: "أرسل الجدول، أو المهمة المتكررة، أو سير العمل المتعثر، ونحوّله إلى نظام عملي.",
     whatsapp: "واتساب",
     email: "البريد",
     linkedin: "لينكدإن",
@@ -162,32 +180,41 @@ const en: Dictionary = {
   meta: {
     title: "Ali Al Aidarous",
     description:
-      "Portfolio of Ali Al Aidarous — product and systems work told from issue to impact. Screenshots and metrics; source stays private.",
+      "Ali Al Aidarous builds practical systems for startups: dashboards, spreadsheet automation, attendance, payroll, and HR workflows around the tools you already use.",
   },
   nav: {
-    work: "Work",
+    work: "Systems",
+    services: "Services",
     contact: "Contact",
   },
   hero: {
-    eyebrow: "Product & systems builder",
+    eyebrow: "Independent systems partner for startups",
     name: "Ali Al Aidarous",
-    lead: "I design and ship internal tools and personal products — told as stories from issue to impact.",
-    ctaWork: "See the work",
-    ctaContact: "Contact",
+    headline: "Scale the business. Automate the busywork.",
+    lead: "I help startups scale by building practical systems that remove operational bottlenecks and repetitive work — so your team can focus on what matters most.",
+    ctaServices: "View services",
+    ctaWork: "See the systems",
+  },
+  services: {
+    eyebrow: "Services",
+    title: "Systems built around the workflow you already have.",
+    lead: "If the work lives in WhatsApp, Google Sheets, or Excel, we start there. The goal is a clearer system, not an unnecessary migration.",
+    cta: "Talk about your workflow",
+    modelEyebrow: "How engagement works",
+    modelTitle: "One-time build. Monthly operation.",
+    modelLead: "The system is built for your company and stays running under a monthly subscription. No public prices — each engagement is scoped after the workflow is understood.",
   },
   work: {
-    eyebrow: "Selected work",
-    title: "Pro systems. Personal craft.",
-    lead: "Private projects — shown through screenshots, metrics, and the story of what changed. No public repos.",
-    pro: "Pro",
-    personal: "Personal",
+    eyebrow: "Systems",
+    title: "Pro systems.",
+    lead: "Real systems designed around existing operations. Each story shows the problem, what was built, and the result.",
     openStory: "Open story",
     loc: "LOC",
   },
   process: {
-    eyebrow: "How I tell work",
+    eyebrow: "How I work",
     title: "Issue to impact.",
-    lead: "Every project follows the same arc — so you see the problem, the bet, and what actually changed.",
+    lead: "Every system follows the same path: understand the bottleneck, choose the fit, build around your tools, then measure what changed.",
   },
   stages: {
     issue: "Issue",
@@ -202,8 +229,8 @@ const en: Dictionary = {
   },
   contact: {
     eyebrow: "Contact",
-    title: "Let's talk about the next build.",
-    lead: "Open to product, internal tools, and thoughtful collaboration.",
+    title: "Tell me what is slowing your team down.",
+    lead: "Send the spreadsheet, the repeated task, or the workflow that keeps breaking. We turn it into a practical system.",
     whatsapp: "WhatsApp",
     email: "Email",
     linkedin: "LinkedIn",
