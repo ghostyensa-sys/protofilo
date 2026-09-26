@@ -400,33 +400,208 @@ export const projects: Project[] = [
     story: {
       issue: {
         lead: {
-          en: "Payroll lived in Google Sheets, and employees still waited on someone to build and send each payslip by hand.",
-          ar: "الرواتب كانت في جداول Google، والموظفون ما زالوا ينتظرون من يبني ويرسل كل قسيمة يدويًا.",
+          en: "Every month, payroll was calculated in Google Sheets and Excel, then deposited into employee bank accounts with no itemized payslip. The only way to understand a salary was to ask Finance.",
+          ar: "كان مسير الرواتب يُعدّ كل شهر في جداول Google وExcel، ثم يُودَع في حسابات الموظفين دون قسيمة تفصيلية. والسبيل الوحيد لفهم الراتب كان سؤال المالية شخصيًا.",
         },
+        points: [
+          {
+            en: "Employees could not see why an amount was deducted",
+            ar: "الموظف لا يعرف سبب أي استقطاع يظهر في راتبه",
+          },
+          {
+            en: "Confirmed overtime hours and rates were unclear",
+            ar: "ساعات العمل الإضافي المعتمدة وأسعارها غير واضحة",
+          },
+          {
+            en: "Bonus amounts had no visible explanation",
+            ar: "مبالغ المكافآت تظهر بلا توضيح لما تُصرف مقابله",
+          },
+          {
+            en: "Every question went directly to the Finance employee",
+            ar: "كل استفسار يصل مباشرة إلى موظف المالية",
+          },
+          {
+            en: "Finance had to open up to five sheets to answer one person",
+            ar: "الإجابة عن سؤال واحد قد تتطلب مراجعة خمسة جداول",
+          },
+          {
+            en: "There was no payslip email, self-service portal, or payroll history",
+            ar: "لا بريد بقسيمة، ولا بوابة خدمة ذاتية، ولا سجل يمكن الرجوع إليه",
+          },
+        ],
       },
       idea: {
         lead: {
-          en: "Turn those sheets into a smart dashboard that emails a detailed payslip to each employee.",
-          ar: "تحويل تلك الجداول إلى لوحة ذكية ترسل قسيمة مفصّلة لكل موظف بالبريد.",
+          en: "Leave the sheets in place. Finance already works there, and a forced migration would create more friction than it removes. Build a layer on top that reads those five sheets and answers the monthly questions for them.",
+          ar: "الإبقاء على الجداول كما هي، لأن فريق المالية يعمل عليها أصلًا، ونقل العمل إلى نظام جديد سيزيد التعقيد بدل أن يخففه. الحل طبقة فوق الجداول الخمسة تقرأ بياناتها وتجيب عن أسئلة الرواتب الشهرية.",
         },
+        points: [
+          {
+            en: "Finance keeps working in the sheets they already know",
+            ar: "تستمر المالية في العمل على الجداول المألوفة لديها",
+          },
+          {
+            en: "One action sends each eligible employee a full payroll breakdown",
+            ar: "إجراء واحد يرسل لكل موظف مؤهل تفصيل مسير راتبه",
+          },
+          {
+            en: "The email carries the payslip and a PDF attachment",
+            ar: "يصل البريد بالقسيمة التفصيلية مع نسخة PDF مرفقة",
+          },
+          {
+            en: "A My Payslips page gives employees their own history",
+            ar: "صفحة «قسائمي» تتيح للموظف مراجعة سجل رواتبه بنفسه",
+          },
+          {
+            en: "Email verification limits each person to their own payslips",
+            ar: "التحقق عبر البريد يمنع الموظف من رؤية قسائم غيره",
+          },
+        ],
       },
       plan: {
         lead: {
-          en: "Map the sheet columns to payslip fields, design the dashboard, then automate the email send so payroll does not stay manual.",
-          ar: "ربط أعمدة الجدول بحقول القسيمة، تصميم اللوحة، ثم أتمتة الإرسال حتى لا يبقى العمل يدويًا.",
+          en: "Keep Google Sheets as the source of truth, then make sending automated and controlled.",
+          ar: "تبقى جداول Google مصدر البيانات، ويصبح الإرسال آليًا وخاضعًا لرقابة المالية.",
         },
+        points: [
+          {
+            en: "Map earnings, deductions, overtime, bonuses, identity, and the payroll month across the sheets",
+            ar: "ربط الاستحقاقات والاستقطاعات والعمل الإضافي والمكافآت وبيانات الموظف وشهر المسير عبر الجداول",
+          },
+          {
+            en: "Warn about missing or misaligned sheets before anything is sent",
+            ar: "التنبيه إلى الجداول الناقصة أو غير المتطابقة قبل الإرسال",
+          },
+          {
+            en: "Limit the dashboard and sending controls to Finance administrators",
+            ar: "حصر لوحة التحكم والإرسال على مسؤولي المالية",
+          },
+          {
+            en: "Preview the payslip before delivery",
+            ar: "معاينة القسيمة قبل إرسالها",
+          },
+          {
+            en: "Record whether each payslip was sent, failed, or opened",
+            ar: "تسجيل حالة كل قسيمة: أُرسلت، أو فشلت، أو فُتحت",
+          },
+        ],
       },
       build: {
         lead: {
-          en: "Built the dashboard on top of Google Sheets and the email flow that delivers a detailed payslip to each employee.",
-          ar: "بُنيت اللوحة فوق جداول Google ومسار البريد الذي يوصل قسيمة مفصّلة لكل موظف.",
+          en: "A Finance dashboard sits on the monthly sheets. One confirmed action emails the payslips, with a PDF attached, and employees can return to their own records later.",
+          ar: "لوحة للمالية فوق جداول الشهر. بعد التأكيد، تُرسل القسائم بالبريد مع ملف PDF، ويستطيع الموظف الرجوع إلى سجلّه لاحقًا.",
         },
+        groups: [
+          {
+            title: { en: "Finance dashboard", ar: "لوحة المالية" },
+            points: [
+              {
+                en: "Month selector, search, and who is eligible or excluded from payroll",
+                ar: "اختيار الشهر، والبحث، ومعرفة من يدخل المسير ومن يُستبعد منه",
+              },
+              {
+                en: "Counts for employees, eligibility, payslips sent, portal views, and remaining email quota",
+                ar: "أعداد الموظفين والمؤهلين والقسائم المرسلة ومشاهدات البوابة وحصة البريد المتبقية",
+              },
+              {
+                en: "An expanded preview of earnings, deductions, rates, and net salary",
+                ar: "معاينة موسعة للاستحقاقات والاستقطاعات والأسعار وصافي الراتب",
+              },
+            ],
+          },
+          {
+            title: { en: "Controlled sending", ar: "إرسال مضبوط" },
+            points: [
+              {
+                en: "One click starts the monthly send after payroll is deposited",
+                ar: "نقرة واحدة تبدأ إرسال الشهر بعد إيداع الرواتب",
+              },
+              {
+                en: "A confirmation shows who will receive it and how much Gmail quota remains",
+                ar: "شاشة تأكيد تعرض عدد المستلمين وحصة Gmail المتبقية",
+              },
+              {
+                en: "Sheet warnings stay visible so bad data is not sent quietly",
+                ar: "تحذيرات الجداول تبقى ظاهرة حتى لا تُرسل بيانات ناقصة بصمت",
+              },
+              {
+                en: "Each email carries the breakdown and an attached PDF",
+                ar: "كل رسالة تحمل التفصيل مع ملف PDF مرفق",
+              },
+            ],
+          },
+          {
+            title: { en: "Administration", ar: "الإدارة" },
+            points: [
+              {
+                en: "Only listed administrators can open the dashboard, send payslips, and edit settings",
+                ar: "المسؤولون المدرجون فقط يفتحون اللوحة ويرسلون القسائم ويعدلون الإعدادات",
+              },
+              {
+                en: "Everyone else who signs in sees only their own payslips",
+                ar: "أي موظف آخر لا يرى بعد دخوله سوى قسائمه",
+              },
+              {
+                en: "PDF attachments can be turned off when a large send needs to move faster",
+                ar: "يمكن إيقاف مرفقات PDF عندما يحتاج إرسال كبير إلى سرعة أعلى",
+              },
+            ],
+          },
+          {
+            title: { en: "Send history", ar: "سجل الإرسال" },
+            points: [
+              {
+                en: "Filter by month and export the log as CSV",
+                ar: "تصفية السجل حسب الشهر وتصديره بصيغة CSV",
+              },
+              {
+                en: "Each row shows the time, employee, email, sent or failed status, and whether it was opened",
+                ar: "كل صف يعرض الوقت والموظف والبريد وحالة الإرسال أو الفشل وهل فُتحت القسيمة",
+              },
+            ],
+          },
+          {
+            title: { en: "My Payslips", ar: "قسائمي" },
+            points: [
+              {
+                en: "The employee signs in with their own email and cannot open anyone else's record",
+                ar: "يدخل الموظف ببريده ولا يستطيع فتح سجل غيره",
+              },
+              {
+                en: "Issued months expand into earnings, deductions, rates, and net salary",
+                ar: "تُفتح أشهر القسائم الصادرة على الاستحقاقات والاستقطاعات والأسعار وصافي الراتب",
+              },
+              {
+                en: "A PDF of that month can be downloaded from the portal",
+                ar: "يمكن تنزيل PDF لذلك الشهر من البوابة",
+              },
+            ],
+          },
+        ],
       },
       impact: {
         lead: {
-          en: "Payslips go out from the sheet without the manual loop. (Replace with your measured outcomes.)",
-          ar: "القسائم تخرج من الجدول دون الحلقة اليدوية. (استبدل بنتائجك المقاسة.)",
+          en: "Employees no longer line up at Finance to decode their salary. The breakdown is in their inbox and in their own portal, while Finance keeps control of the sheets and the send.",
+          ar: "لم يعد الموظفون يراجعون المالية لفهم رواتبهم. التفصيل يصل إلى بريدهم ويبقى في بوابتهم، والمالية تحتفظ بالتحكم في الجداول والإرسال.",
         },
+        points: [
+          {
+            en: "Deductions, overtime, and bonuses are visible without a conversation",
+            ar: "الاستقطاعات والعمل الإضافي والمكافآت ظاهرة دون الحاجة إلى سؤال",
+          },
+          {
+            en: "Finance stops pulling five sheets for the same monthly questions",
+            ar: "تتوقف المالية عن فتح خمسة جداول للإجابة عن الأسئلة المتكررة",
+          },
+          {
+            en: "Management and employees share one clear payroll record",
+            ar: "الإدارة والموظفون يرجعون إلى سجل رواتب واحد وواضح",
+          },
+          {
+            en: "Self-service builds trust without taking control away from Finance",
+            ar: "الخدمة الذاتية تعزز الثقة من غير أن تُخرج العملية من يد المالية",
+          },
+        ],
       },
     },
   },
