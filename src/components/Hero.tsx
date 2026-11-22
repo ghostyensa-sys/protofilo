@@ -1,54 +1,70 @@
 import type { Dictionary } from "@/i18n/dictionaries";
+import type { Locale } from "@/i18n/config";
 
-export function Hero({ dictionary }: { dictionary: Dictionary }) {
+export type HeroSystem = {
+  slug: string;
+  title: string;
+};
+
+export function Hero({
+  locale,
+  dictionary,
+  systems,
+}: {
+  locale: Locale;
+  dictionary: Dictionary;
+  systems: HeroSystem[];
+}) {
   return (
-    <section className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden px-6 pb-16 pt-28 sm:px-10 sm:pb-24 lg:px-16">
+    <section className="relative overflow-hidden">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_10%,var(--hero-glow),transparent_55%),radial-gradient(ellipse_at_90%_30%,var(--hero-shade),transparent_45%),linear-gradient(180deg,var(--paper)_0%,var(--paper-2)_100%)]" />
-        <div className="absolute inset-0 opacity-[0.28] mix-blend-multiply dark:opacity-[0.15] dark:mix-blend-soft-light [background-image:url('data:image/svg+xml,%3Csvg viewBox=%270 0 200 200%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.85%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n)%27/%3E%3C/svg%3E')]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_0%_0%,var(--hero-glow),transparent_50%),linear-gradient(180deg,var(--paper)_0%,var(--paper-2)_100%)]" />
       </div>
 
-      <p className="reveal eyebrow mb-4 max-w-xl text-sm text-[var(--muted)]">
-        {dictionary.hero.eyebrow}
-      </p>
+      <div className="frame grid items-end gap-12 pt-28 pb-16 sm:pt-32 sm:pb-20 lg:grid-cols-[minmax(0,1.35fr)_minmax(16rem,0.65fr)] lg:gap-20 lg:pt-36 lg:pb-24">
+        <div>
+          <p className="reveal eyebrow mb-5 max-w-xl text-sm text-[var(--muted)]">
+            {dictionary.hero.eyebrow}
+          </p>
+          <h1 className="reveal font-display display-tight max-w-4xl text-[clamp(2.6rem,6.2vw,4.75rem)] leading-[1.08] text-[var(--ink)]">
+            {dictionary.hero.headline}
+          </h1>
+          <p className="reveal mt-6 max-w-xl text-lg leading-relaxed text-[var(--ink-soft)]">
+            {dictionary.hero.lead}
+          </p>
+          <div className="reveal mt-8 flex flex-wrap gap-3">
+            <a href="#services" className="btn btn-primary">
+              {dictionary.hero.ctaServices}
+            </a>
+            <a href="#work" className="btn btn-secondary">
+              {dictionary.hero.ctaWork}
+            </a>
+          </div>
+        </div>
 
-      <p
-        className="reveal font-display mb-4 text-2xl text-[var(--ink)] sm:text-3xl"
-        style={{ animationDelay: "80ms" }}
-      >
-        {dictionary.hero.name}
-      </p>
-
-      <h1
-        className="reveal font-display max-w-5xl text-[clamp(2.6rem,7.5vw,5.6rem)] leading-[1.08] tracking-[-0.03em] text-[var(--ink)]"
-        style={{ animationDelay: "140ms" }}
-      >
-        {dictionary.hero.headline}
-      </h1>
-
-      <p
-        className="reveal mt-6 max-w-xl text-lg leading-relaxed text-[var(--ink-soft)] sm:text-xl"
-        style={{ animationDelay: "220ms" }}
-      >
-        {dictionary.hero.lead}
-      </p>
-
-      <div
-        className="reveal mt-10 flex flex-wrap items-center gap-4"
-        style={{ animationDelay: "300ms" }}
-      >
-        <a
-          href="#services"
-          className="inline-flex items-center justify-center bg-[var(--ink)] px-6 py-3 text-sm font-medium tracking-wide text-[var(--paper)] transition hover:bg-[var(--accent-deep)] hover:text-[var(--paper)]"
-        >
-          {dictionary.hero.ctaServices}
-        </a>
-        <a
-          href="#work"
-          className="inline-flex items-center justify-center border border-[var(--ink)]/45 px-6 py-3 text-sm font-medium tracking-wide text-[var(--ink)] transition hover:border-[var(--accent)] hover:text-[var(--accent-deep)]"
-        >
-          {dictionary.hero.ctaWork}
-        </a>
+        <ol className="reveal border-t border-[var(--ink)]/12 lg:border-t-0">
+          {systems.map((system, index) => (
+            <li key={system.slug} className="border-b border-[var(--ink)]/12">
+              <a
+                href={`/${locale}/work/${system.slug}`}
+                className="group grid grid-cols-[2rem_1fr_auto] items-baseline gap-3 py-4"
+              >
+                <span className="text-xs text-[var(--muted)]">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="text-[var(--ink)] transition group-hover:text-[var(--accent-deep)]">
+                  {system.title}
+                </span>
+                <span
+                  aria-hidden
+                  className="text-[var(--muted)] transition group-hover:text-[var(--accent-deep)]"
+                >
+                  {locale === "ar" ? "←" : "→"}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );

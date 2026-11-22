@@ -25,7 +25,6 @@ export type Dictionary = {
     eyebrow: string;
     title: string;
     lead: string;
-    mark: string;
     point1: string;
     point2: string;
     point3: string;
@@ -49,21 +48,12 @@ export type Dictionary = {
     openStory: string;
     loc: string;
   };
-  process: {
-    eyebrow: string;
-    title: string;
-    lead: string;
-  };
   stages: {
     issue: string;
     idea: string;
     plan: string;
     build: string;
     impact: string;
-  };
-  featured: {
-    eyebrow: string;
-    readFull: string;
   };
   contact: {
     eyebrow: string;
@@ -141,10 +131,9 @@ const ar: Dictionary = {
     eyebrow: "نبذة",
     title: "شريك للعمل الذي يُشغّل الشركة أصلًا.",
     lead: "أنا علي العيدروس، شريك مستقل للشركات الناشئة. أبني الأنظمة التي يحتاجها الفريق الصغير لتشغيل اليوم: لوحات، وأتمتة الجداول، والحضور، والرواتب، وموارد بشرية خفيفة.",
-    mark: "ع",
     point1: "أبدأ من الجدول، أو البريد، أو المحادثة التي يجري فيها العمل أصلًا.",
-    point2: "النظام يُحدَّد بعد وضوح سير العمل، ثم يبقى قيد التشغيل.",
-    point3: "بياناتكم تبقى لكم، ويمكن تصديرها في أي وقت.",
+    point2: "لا يُحدَّد النظام إلا بعد ما يتضح سير العمل.",
+    point3: "ما يُبنى هو شيء يشغّله الفريق كل يوم، لا تقرير يصف المشكلة.",
   },
   services: {
     eyebrow: "الخدمات",
@@ -160,15 +149,10 @@ const ar: Dictionary = {
   },
   work: {
     eyebrow: "الأنظمة",
-    title: "أنظمة احترافية.",
+    title: "أنظمة مختارة.",
     lead: "أنظمة حقيقية صُممت حول التشغيل القائم. كل قصة توضح المشكلة، وما بُني، والنتيجة.",
     openStory: "افتح القصة",
     loc: "سطر",
-  },
-  process: {
-    eyebrow: "طريقة العمل",
-    title: "من المشكلة إلى الأثر.",
-    lead: "كل نظام يمر بالمسار نفسه: نفهم العائق، نحدد الحل، نبنيه حول أدواتكم، ثم نقيس ما تغيّر.",
   },
   stages: {
     issue: "المشكلة",
@@ -176,10 +160,6 @@ const ar: Dictionary = {
     plan: "الخطة",
     build: "البناء",
     impact: "الأثر والنتيجة",
-  },
-  featured: {
-    eyebrow: "قصة مميزة",
-    readFull: "اقرأ دراسة الحالة كاملة",
   },
   contact: {
     eyebrow: "تواصل",
@@ -257,11 +237,11 @@ const en: Dictionary = {
     eyebrow: "About",
     title: "A partner for the work that already runs the company.",
     lead: "I'm Ali Al Aidarous, an independent partner for startups. I build the systems a small team needs to run the day: dashboards, spreadsheet automation, attendance, payroll, and lightweight HR.",
-    mark: "A",
     point1:
       "I start from the spreadsheet, the inbox, or the chat where the work already happens.",
-    point2: "The system is scoped after the workflow is clear, then kept running.",
-    point3: "You keep your data, and you can export it whenever you want.",
+    point2: "The system is scoped only after that workflow is clear.",
+    point3:
+      "What gets built is a system the team runs every day, not a report about the problem.",
   },
   services: {
     eyebrow: "Services",
@@ -277,15 +257,10 @@ const en: Dictionary = {
   },
   work: {
     eyebrow: "Systems",
-    title: "Pro systems.",
+    title: "Selected systems.",
     lead: "Real systems designed around existing operations. Each story shows the problem, what was built, and the result.",
     openStory: "Open story",
     loc: "LOC",
-  },
-  process: {
-    eyebrow: "How I work",
-    title: "Issue to impact.",
-    lead: "Every system follows the same path: understand the bottleneck, choose the fit, build around your tools, then measure what changed.",
   },
   stages: {
     issue: "Issue",
@@ -293,10 +268,6 @@ const en: Dictionary = {
     plan: "Plan",
     build: "Build",
     impact: "Impact & result",
-  },
-  featured: {
-    eyebrow: "Featured story",
-    readFull: "Read the full case",
   },
   contact: {
     eyebrow: "Contact",

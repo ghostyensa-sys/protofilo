@@ -30,7 +30,7 @@ export function LocaleSwitcher({
             href={switchPath(code)}
             hrefLang={code}
             lang={code}
-            className={`rounded px-2 py-1 transition ${
+            className={`px-2 py-1 text-sm transition ${
               code === "ar"
                 ? "[font-family:var(--font-arabic),system-ui,sans-serif]"
                 : ""

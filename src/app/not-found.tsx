@@ -13,20 +13,19 @@ export default async function RootNotFound() {
         {dictionary.skip}
       </a>
       <SiteHeader locale={locale} dictionary={dictionary} />
-      <main id="main" className="px-6 pb-24 pt-32">
-        <div className="mx-auto max-w-3xl">
-          <h1 className="font-display text-4xl tracking-tight text-[var(--ink)]">
+      <main id="main" className="pt-32 pb-24">
+        <div className="frame">
+          <div className="max-w-3xl">
+          <h1 className="font-display display-tight text-4xl text-[var(--ink)]">
             {dictionary.notFound.title}
           </h1>
           <p className="mt-4 text-lg text-[var(--ink-soft)]">
             {dictionary.notFound.body}
           </p>
-          <Link
-            href={`/${locale}`}
-            className="mt-8 inline-flex bg-[var(--ink)] px-6 py-3 text-sm font-medium text-[var(--paper)]"
-          >
+          <Link href={`/${locale}`} className="btn btn-primary mt-8">
             {dictionary.notFound.home}
           </Link>
+          </div>
         </div>
       </main>
     </>

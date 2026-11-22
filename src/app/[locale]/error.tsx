@@ -16,21 +16,19 @@ export default function LocaleError({
   const dictionary = getDictionary(locale);
 
   return (
-    <main id="main" className="px-6 pb-24 pt-32 sm:px-10 lg:px-16">
-      <div className="mx-auto max-w-3xl">
-        <h1 className="font-display text-4xl tracking-tight text-[var(--ink)]">
+    <main id="main" className="pt-32 pb-24">
+      <div className="frame">
+        <div className="max-w-3xl">
+        <h1 className="font-display display-tight text-4xl text-[var(--ink)]">
           {dictionary.error.title}
         </h1>
         <p className="mt-4 text-lg text-[var(--ink-soft)]">
           {dictionary.error.body}
         </p>
-        <button
-          type="button"
-          onClick={reset}
-          className="mt-8 inline-flex bg-[var(--ink)] px-6 py-3 text-sm font-medium text-[var(--paper)]"
-        >
+        <button type="button" onClick={reset} className="btn btn-primary mt-8">
           {dictionary.error.retry}
         </button>
+        </div>
       </div>
     </main>
   );
