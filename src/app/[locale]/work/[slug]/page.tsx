@@ -13,6 +13,8 @@ import {
 } from "@/content/projects";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale, locales, type Locale } from "@/i18n/config";
+import { existingScreenshots } from "@/lib/screenshots";
+import { socialMetadata } from "@/lib/metadata";
 
 type PageProps = {
   params: Promise<{ locale: string; slug: string }>;
@@ -32,10 +34,19 @@ export async function generateMetadata({
   const project = getProject(slug);
   if (!project) return {};
   const localized = localizeProject(project, localeParam);
+  const dictionary = getDictionary(localeParam);
+  const title = `${localized.title} · ${dictionary.meta.title}`;
 
   return {
     title: localized.title,
     description: localized.hook,
+    ...socialMetadata({
+      locale: localeParam,
+      title,
+      description: localized.hook,
+      path: `/work/${localized.slug}`,
+      siteName: dictionary.meta.title,
+    }),
   };
 }
 
@@ -48,12 +59,13 @@ export default async function WorkCasePage({ params }: PageProps) {
   if (!project) notFound();
 
   const localized = localizeProject(project, locale);
+  const screenshots = existingScreenshots(localized.screenshots);
   const { prev, next } = getAdjacentProjects(slug);
   const prevLocalized = prev ? localizeProject(prev, locale) : null;
   const nextLocalized = next ? localizeProject(next, locale) : null;
 
   return (
-    <main>
+    <main id="main">
       <article className="px-6 pb-8 pt-28 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-6xl">
           <Link
@@ -64,7 +76,7 @@ export default async function WorkCasePage({ params }: PageProps) {
             {dictionary.caseStudy.allWork}
           </Link>
 
-          <p className="mt-8 text-xs tracking-[0.16em] text-[var(--accent-deep)] uppercase">
+          <p className="eyebrow mt-8 text-xs text-[var(--accent-deep)]">
             {localized.level === "pro"
               ? dictionary.caseStudy.proLevel
               : dictionary.caseStudy.personalLevel}
@@ -75,6 +87,9 @@ export default async function WorkCasePage({ params }: PageProps) {
           <p className="mt-5 max-w-2xl text-xl text-[var(--ink-soft)]">
             {localized.summary}
           </p>
+          <p className="mt-4 max-w-2xl text-lg text-[var(--ink)]">
+            {localized.outcome}
+          </p>
 
           <div className="mt-12">
             <MetricsStrip
@@ -83,18 +98,20 @@ export default async function WorkCasePage({ params }: PageProps) {
             />
           </div>
 
-          <section className="mt-16">
-            <h2 className="mb-6 text-sm tracking-[0.16em] text-[var(--muted)] uppercase">
-              {dictionary.caseStudy.screenshots}
-            </h2>
-            <ScreenshotGallery
-              screenshots={localized.screenshots}
-              labels={dictionary.caseStudy}
-            />
-            <p className="mt-4 text-xs text-[var(--muted)]">
-              {dictionary.caseStudy.privacyNote}
-            </p>
-          </section>
+          {screenshots.length > 0 ? (
+            <section className="mt-16">
+              <h2 className="eyebrow mb-6 text-sm text-[var(--muted)]">
+                {dictionary.caseStudy.screenshots}
+              </h2>
+              <ScreenshotGallery
+                screenshots={screenshots}
+                labels={dictionary.caseStudy}
+              />
+            </section>
+          ) : null}
+          <p className="mt-4 text-xs text-[var(--muted)]">
+            {dictionary.caseStudy.privacyNote}
+          </p>
 
           <section className="mt-20">
             <h2 className="mb-10 font-display text-3xl tracking-tight text-[var(--ink)]">
@@ -106,13 +123,22 @@ export default async function WorkCasePage({ params }: PageProps) {
             />
           </section>
 
+          <div className="mt-16">
+            <a
+              href={`/${locale}/#contact`}
+              className="inline-flex items-center justify-center bg-[var(--ink)] px-6 py-3 text-sm font-medium tracking-wide text-[var(--paper)] transition hover:bg-[var(--accent-deep)]"
+            >
+              {dictionary.caseStudy.startSimilar}
+            </a>
+          </div>
+
           <nav className="mt-24 flex flex-col gap-4 border-t border-[var(--ink)]/12 pt-10 sm:flex-row sm:justify-between">
             {prevLocalized ? (
               <Link
                 href={`/${locale}/work/${prevLocalized.slug}`}
                 className="group text-[var(--ink-soft)] transition hover:text-[var(--ink)]"
               >
-                <span className="block text-xs tracking-[0.14em] text-[var(--muted)] uppercase">
+                <span className="eyebrow block text-xs text-[var(--muted)]">
                   {dictionary.caseStudy.previous}
                 </span>
                 <span className="font-display text-xl group-hover:text-[var(--accent-deep)]">
@@ -127,7 +153,7 @@ export default async function WorkCasePage({ params }: PageProps) {
                 href={`/${locale}/work/${nextLocalized.slug}`}
                 className="group text-start text-[var(--ink-soft)] transition hover:text-[var(--ink)] sm:text-end"
               >
-                <span className="block text-xs tracking-[0.14em] text-[var(--muted)] uppercase">
+                <span className="eyebrow block text-xs text-[var(--muted)]">
                   {dictionary.caseStudy.next}
                 </span>
                 <span className="font-display text-xl group-hover:text-[var(--accent-deep)]">

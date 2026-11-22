@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "motion/react";
 import { storyStageKeys, type LocalizedStorySection } from "@/content/projects";
 import type { Dictionary } from "@/i18n/dictionaries";
 
@@ -18,19 +15,15 @@ export function CaseStages({
       {storyStageKeys.map((key, index) => {
         const section = story[key];
         return (
-          <motion.section
+          <section
             key={key}
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="grid gap-4 border-t border-[var(--ink)]/12 pt-10 md:grid-cols-[140px_1fr] md:gap-12"
+            className="reveal grid gap-4 border-t border-[var(--ink)]/12 pt-10 md:grid-cols-[140px_1fr] md:gap-12"
           >
             <div>
               <p className="font-display text-3xl text-[var(--accent)]/60">
                 {String(index + 1).padStart(2, "0")}
               </p>
-              <h2 className="mt-2 text-sm tracking-[0.16em] text-[var(--ink)] uppercase">
+              <h2 className="eyebrow mt-2 text-sm text-[var(--ink)]">
                 {stageLabels[key]}
               </h2>
             </div>
@@ -58,7 +51,7 @@ export function CaseStages({
                 </div>
               ))}
             </div>
-          </motion.section>
+          </section>
         );
       })}
     </div>

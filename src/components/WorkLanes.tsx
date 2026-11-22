@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "motion/react";
 import type { LocalizedProject } from "@/content/projects";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -18,12 +15,7 @@ function ProjectRow({
   dictionary: Dictionary;
 }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.55, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <div className="reveal" style={{ animationDelay: `${index * 60}ms` }}>
       <Link
         href={`/${locale}/work/${project.slug}`}
         className="group flex flex-col gap-3 border-t border-[var(--ink)]/12 py-7 transition sm:flex-row sm:items-end sm:justify-between sm:gap-10"
@@ -34,16 +26,16 @@ function ProjectRow({
           </h3>
           <p className="mt-2 max-w-xl text-[var(--ink-soft)]">{project.hook}</p>
         </div>
-        <div className="flex shrink-0 items-center gap-6 text-sm text-[var(--muted)]">
-          <span>
-            {project.metrics.linesOfCode} {dictionary.work.loc}
-          </span>
-          <span className="text-[var(--accent-deep)] transition group-hover:translate-x-1 rtl:group-hover:-translate-x-1">
+        <div className="flex shrink-0 flex-col gap-2 sm:max-w-xs sm:items-end">
+          <p className="text-sm leading-relaxed text-[var(--ink)]">
+            {project.outcome}
+          </p>
+          <span className="text-sm text-[var(--accent-deep)] transition group-hover:translate-x-1 rtl:group-hover:-translate-x-1">
             {dictionary.work.openStory} {locale === "ar" ? "←" : "→"}
           </span>
         </div>
       </Link>
-    </motion.div>
+    </div>
   );
 }
 
@@ -59,14 +51,8 @@ export function WorkLanes({
   return (
     <section id="work" className="scroll-mt-24 px-6 py-24 sm:px-10 lg:px-16">
       <div className="mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.55 }}
-          className="mb-14 max-w-2xl"
-        >
-          <p className="mb-3 text-xs tracking-[0.18em] text-[var(--muted)] uppercase">
+        <div className="reveal mb-14 max-w-2xl">
+          <p className="eyebrow mb-3 text-xs text-[var(--muted)]">
             {dictionary.work.eyebrow}
           </p>
           <h2 className="font-display text-4xl tracking-tight text-[var(--ink)] sm:text-5xl">
@@ -75,7 +61,7 @@ export function WorkLanes({
           <p className="mt-4 text-lg text-[var(--ink-soft)]">
             {dictionary.work.lead}
           </p>
-        </motion.div>
+        </div>
 
         <div>
           {projects.map((project, index) => (

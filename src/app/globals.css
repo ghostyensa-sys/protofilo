@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --paper: #f3f6f4;
   --paper-2: #e8eee9;
   --ink: #0b1220;
   --ink-soft: #3a4556;
-  --muted: #6b7585;
+  --muted: #5a6574;
   --accent: #2d8c94;
   --accent-deep: #1f6b72;
   --hero-glow: rgba(45, 140, 148, 0.18);
@@ -19,7 +21,7 @@
   --paper-2: #141b24;
   --ink: #e8eef4;
   --ink-soft: #a8b3c2;
-  --muted: #7d8a9a;
+  --muted: #8b97a6;
   --accent: #3ea8b0;
   --accent-deep: #7ec8cd;
   --hero-glow: rgba(62, 168, 176, 0.16);
@@ -44,22 +46,69 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-body), system-ui, sans-serif;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
 
-html[lang="ar"] body,
-html[dir="rtl"] body {
-  font-family: var(--font-arabic), var(--font-body), system-ui, sans-serif;
+html[lang="ar"] body {
+  font-family: var(--font-arabic), system-ui, sans-serif;
 }
 
 .font-display {
-  font-family: var(--font-display), Georgia, "Noto Naskh Arabic", serif;
+  font-family: var(--font-display), Georgia, serif;
 }
 
 html[lang="ar"] .font-display,
 html[dir="rtl"] .font-display {
-  font-family: var(--font-arabic), var(--font-display), serif;
+  font-family: var(--font-display-ar), var(--font-arabic), serif;
   letter-spacing: 0;
+}
+
+.eyebrow {
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+html[lang="ar"] .eyebrow {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+html[lang="ar"] .tracking-wide {
+  letter-spacing: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-deep);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link:focus {
+  position: fixed;
+  top: 1rem;
+  inset-inline-start: 1rem;
+  z-index: 60;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  padding: 0.75rem 1rem;
+  background: var(--ink);
+  color: var(--paper);
 }
 
 ::selection {
@@ -68,4 +117,34 @@ html[dir="rtl"] .font-display {
 
 .dark ::selection {
   background: rgba(62, 168, 176, 0.35);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body,
+  .reveal {
+    animation: none;
+    transition: none;
+  }
 }

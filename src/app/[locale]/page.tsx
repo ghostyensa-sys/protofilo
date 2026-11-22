@@ -1,3 +1,4 @@
+import { About } from "@/components/About";
 import { FeaturedTeaser } from "@/components/FeaturedTeaser";
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
@@ -5,6 +6,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { StoryProcess } from "@/components/StoryProcess";
 import { WorkLanes } from "@/components/WorkLanes";
 import {
+  getFeaturedProject,
   getLocalizedProjects,
   localizeProject,
   projects,
@@ -23,12 +25,20 @@ export default async function HomePage({ params }: PageProps) {
   const locale = localeParam as Locale;
   const dictionary = getDictionary(locale);
   const systems = getLocalizedProjects(locale);
-  const featured = localizeProject(projects[0], locale);
+  const featured = localizeProject(getFeaturedProject(), locale);
+  const relatedTitles = Object.fromEntries(
+    projects.map((project) => [project.slug, project.title[locale]]),
+  );
 
   return (
-    <main>
+    <main id="main">
       <Hero dictionary={dictionary} />
-      <Services locale={locale} dictionary={dictionary} />
+      <About dictionary={dictionary} />
+      <Services
+        locale={locale}
+        dictionary={dictionary}
+        relatedTitles={relatedTitles}
+      />
       <WorkLanes locale={locale} dictionary={dictionary} projects={systems} />
       <StoryProcess dictionary={dictionary} />
       <FeaturedTeaser
