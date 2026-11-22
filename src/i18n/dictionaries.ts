@@ -6,9 +6,12 @@ export type Dictionary = {
     description: string;
   };
   nav: {
+    about: string;
     work: string;
     services: string;
     contact: string;
+    menu: string;
+    close: string;
   };
   hero: {
     eyebrow: string;
@@ -18,6 +21,15 @@ export type Dictionary = {
     ctaServices: string;
     ctaWork: string;
   };
+  about: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    mark: string;
+    point1: string;
+    point2: string;
+    point3: string;
+  };
   services: {
     eyebrow: string;
     title: string;
@@ -26,6 +38,9 @@ export type Dictionary = {
     modelEyebrow: string;
     modelTitle: string;
     modelLead: string;
+    problem: string;
+    outcome: string;
+    seeSystem: string;
   };
   work: {
     eyebrow: string;
@@ -76,11 +91,24 @@ export type Dictionary = {
     integration: string;
     screenshotPlaceholder: string;
     dropImageAt: string;
+    startSimilar: string;
   };
   theme: {
     light: string;
     dark: string;
+    toggle: string;
   };
+  notFound: {
+    title: string;
+    body: string;
+    home: string;
+  };
+  error: {
+    title: string;
+    body: string;
+    retry: string;
+  };
+  skip: string;
   lang: {
     ar: string;
     en: string;
@@ -94,9 +122,12 @@ const ar: Dictionary = {
       "علي العيدروس يبني أنظمة عملية للشركات الناشئة: لوحات تشغيل، أتمتة الجداول، الحضور، الرواتب، والموارد البشرية، حول طريقة العمل الحالية.",
   },
   nav: {
+    about: "نبذة",
     work: "الأنظمة",
     services: "الخدمات",
     contact: "تواصل",
+    menu: "القائمة",
+    close: "إغلاق",
   },
   hero: {
     eyebrow: "شريك مستقل لبناء أنظمة الشركات الناشئة",
@@ -106,6 +137,15 @@ const ar: Dictionary = {
     ctaServices: "استعرض الخدمات",
     ctaWork: "شاهد الأنظمة",
   },
+  about: {
+    eyebrow: "نبذة",
+    title: "شريك للعمل الذي يُشغّل الشركة أصلًا.",
+    lead: "أنا علي العيدروس، شريك مستقل للشركات الناشئة. أبني الأنظمة التي يحتاجها الفريق الصغير لتشغيل اليوم: لوحات، وأتمتة الجداول، والحضور، والرواتب، وموارد بشرية خفيفة.",
+    mark: "ع",
+    point1: "أبدأ من الجدول، أو البريد، أو المحادثة التي يجري فيها العمل أصلًا.",
+    point2: "النظام يُحدَّد بعد وضوح سير العمل، ثم يبقى قيد التشغيل.",
+    point3: "بياناتكم تبقى لكم، ويمكن تصديرها في أي وقت.",
+  },
   services: {
     eyebrow: "الخدمات",
     title: "أنظمة تُبنى حول طريقة عملكم الحالية.",
@@ -114,6 +154,9 @@ const ar: Dictionary = {
     modelEyebrow: "طريقة التعاون",
     modelTitle: "تنفيذ مرة واحدة، وتشغيل شهري.",
     modelLead: "النظام يُبنى لشركتك، ويبقى تحت التشغيل والصيانة مقابل اشتراك شهري. لا أسعار منشورة هنا؛ كل عمل يُسعّر بعد فهم سير العمل.",
+    problem: "المشكلة",
+    outcome: "النتيجة",
+    seeSystem: "شاهد النظام",
   },
   work: {
     eyebrow: "الأنظمة",
@@ -145,15 +188,14 @@ const ar: Dictionary = {
     whatsapp: "واتساب",
     email: "البريد",
     linkedin: "لينكدإن",
-    copyright:
-      "تُعرض الأعمال عبر لقطات ومقاييس — المصدر يبقى خاصًا.",
+    copyright: "المصدر يبقى خاصًا.",
   },
   caseStudy: {
     allWork: "كل الأعمال",
     proLevel: "مستوى احترافي",
     personalLevel: "مستوى شخصي",
     screenshots: "لقطات الشاشة",
-    privacyNote: "لا مستودع عام — الإثبات لقطات ومقاييس الحرفة فقط.",
+    privacyNote: "لا مستودع عام — المصدر يبقى خاصًا.",
     theStory: "القصة",
     previous: "السابق",
     next: "التالي",
@@ -165,11 +207,24 @@ const ar: Dictionary = {
     integration: "التكامل",
     screenshotPlaceholder: "مكان اللقطة",
     dropImageAt: "ضع صورتك في",
+    startSimilar: "خلّنا نتكلم عن نظام كهذا",
   },
   theme: {
     light: "فاتح",
     dark: "داكن",
+    toggle: "تبديل المظهر",
   },
+  notFound: {
+    title: "هذه الصفحة غير موجودة.",
+    body: "قد يكون الرابط قديمًا، أو أن الصفحة نُقلت.",
+    home: "العودة إلى الرئيسية",
+  },
+  error: {
+    title: "حدث خطأ",
+    body: "تعذّر عرض هذه الصفحة. حاول مرة أخرى.",
+    retry: "حاول مرة أخرى",
+  },
+  skip: "تخطي إلى المحتوى",
   lang: {
     ar: "عربي",
     en: "EN",
@@ -183,9 +238,12 @@ const en: Dictionary = {
       "Ali Al Aidarous builds practical systems for startups: dashboards, spreadsheet automation, attendance, payroll, and HR workflows around the tools you already use.",
   },
   nav: {
+    about: "About",
     work: "Systems",
     services: "Services",
     contact: "Contact",
+    menu: "Menu",
+    close: "Close",
   },
   hero: {
     eyebrow: "Independent systems partner for startups",
@@ -195,6 +253,16 @@ const en: Dictionary = {
     ctaServices: "View services",
     ctaWork: "See the systems",
   },
+  about: {
+    eyebrow: "About",
+    title: "A partner for the work that already runs the company.",
+    lead: "I'm Ali Al Aidarous, an independent partner for startups. I build the systems a small team needs to run the day: dashboards, spreadsheet automation, attendance, payroll, and lightweight HR.",
+    mark: "A",
+    point1:
+      "I start from the spreadsheet, the inbox, or the chat where the work already happens.",
+    point2: "The system is scoped after the workflow is clear, then kept running.",
+    point3: "You keep your data, and you can export it whenever you want.",
+  },
   services: {
     eyebrow: "Services",
     title: "Systems built around the workflow you already have.",
@@ -203,6 +271,9 @@ const en: Dictionary = {
     modelEyebrow: "How engagement works",
     modelTitle: "One-time build. Monthly operation.",
     modelLead: "The system is built for your company and stays running under a monthly subscription. No public prices — each engagement is scoped after the workflow is understood.",
+    problem: "The problem",
+    outcome: "The result",
+    seeSystem: "See the system",
   },
   work: {
     eyebrow: "Systems",
@@ -234,16 +305,14 @@ const en: Dictionary = {
     whatsapp: "WhatsApp",
     email: "Email",
     linkedin: "LinkedIn",
-    copyright:
-      "Work shown via screenshots and metrics — source stays private.",
+    copyright: "Source stays private.",
   },
   caseStudy: {
     allWork: "All work",
     proLevel: "Pro level",
     personalLevel: "Personal level",
     screenshots: "Screenshots",
-    privacyNote:
-      "No public repository — proof is screenshots and craft metrics only.",
+    privacyNote: "No public repository — the source stays private.",
     theStory: "The story",
     previous: "Previous",
     next: "Next",
@@ -255,11 +324,24 @@ const en: Dictionary = {
     integration: "Integration",
     screenshotPlaceholder: "Screenshot placeholder",
     dropImageAt: "Drop your image at",
+    startSimilar: "Talk about a system like this",
   },
   theme: {
     light: "Light",
     dark: "Dark",
+    toggle: "Switch color theme",
   },
+  notFound: {
+    title: "This page is not here.",
+    body: "The link may be old, or the page may have moved.",
+    home: "Back home",
+  },
+  error: {
+    title: "Something went wrong",
+    body: "This page could not be shown. Try again.",
+    retry: "Try again",
+  },
+  skip: "Skip to content",
   lang: {
     ar: "عربي",
     en: "EN",

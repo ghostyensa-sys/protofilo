@@ -15,7 +15,7 @@ export function SiteFooter({ dictionary }: { dictionary: Dictionary }) {
     >
       <div className="mx-auto flex max-w-6xl flex-col gap-10 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="mb-3 text-xs tracking-[0.18em] text-[var(--muted)] uppercase">
+          <p className="eyebrow mb-3 text-xs text-[var(--muted)]">
             {dictionary.contact.eyebrow}
           </p>
           <h2 className="font-display text-3xl tracking-tight text-[var(--ink)] sm:text-4xl">

@@ -7,6 +7,7 @@ export type Service = {
   title: LocalizedString;
   problem: LocalizedString;
   outcome: LocalizedString;
+  relatedSlug?: string;
 };
 
 export type EngagementStep = {
@@ -26,9 +27,10 @@ export const services: Service[] = [
       ar: "الطلبات والتحديثات والقرارات تضيع داخل محادثات واتساب.",
     },
     outcome: {
-      en: "A structured Discord workspace with channels, roles, request paths, and working rules the team can actually follow.",
-      ar: "مساحة Discord منظمة: قنوات، وأدوار، ومسار واضح للطلبات، وقواعد عمل يستطيع الفريق الالتزام بها.",
+      en: "A structured workspace with channels, roles, a clear request path, and rules the team can follow.",
+      ar: "مساحة عمل منظمة: قنوات، وأدوار، ومسار واضح للطلبات، وقواعد يستطيع الفريق الالتزام بها.",
     },
+    relatedSlug: "cross-org-requests",
   },
   {
     id: "dashboards",
@@ -44,6 +46,7 @@ export const services: Service[] = [
       en: "A live view of KPIs, queues, and reports so the day can be run from one screen.",
       ar: "عرض مباشر للمؤشرات والطوابير والتقارير، حتى يُدار اليوم من شاشة واحدة.",
     },
+    relatedSlug: "support-dashboard",
   },
   {
     id: "sheets",
@@ -59,6 +62,7 @@ export const services: Service[] = [
       en: "Validation, automation, portals, and reporting built on the sheets you already use.",
       ar: "تحقق من البيانات، وأتمتة، وبوابات، وتقارير تُبنى فوق الجداول التي تستخدمونها الآن.",
     },
+    relatedSlug: "jisr-payslips",
   },
   {
     id: "workforce",
@@ -74,6 +78,7 @@ export const services: Service[] = [
       en: "Attendance, availability, workload, exceptions, and workforce reports in one system.",
       ar: "الحضور، والتوفر، وحجم العمل، والاستثناءات، وتقارير الفريق في نظام واحد.",
     },
+    relatedSlug: "support-dashboard",
   },
   {
     id: "payroll",
@@ -89,6 +94,7 @@ export const services: Service[] = [
       en: "A controlled payroll flow with itemized payslips, delivery history, and employee self-service.",
       ar: "مسار رواتب مضبوط: قسيمة تفصيلية، وسجل إرسال، وخدمة ذاتية للموظف.",
     },
+    relatedSlug: "jisr-payslips",
   },
   {
     id: "hr",

@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { Locale } from "@/i18n/config";
 import { locales } from "@/i18n/config";
@@ -26,19 +25,32 @@ export function LocaleSwitcher({
       {locales.map((code) => {
         const active = code === locale;
         return (
-          <Link
+          <a
             key={code}
             href={switchPath(code)}
             hrefLang={code}
+            lang={code}
             className={`rounded px-2 py-1 transition ${
+              code === "ar"
+                ? "[font-family:var(--font-arabic),system-ui,sans-serif]"
+                : ""
+            } ${
               active
                 ? "bg-[var(--ink)] text-[var(--paper)]"
                 : "text-[var(--ink-soft)] hover:text-[var(--ink)]"
             }`}
             aria-current={active ? "page" : undefined}
+            onPointerDown={(event) => {
+              const hash = window.location.hash;
+              if (hash) event.currentTarget.hash = hash;
+            }}
+            onFocus={(event) => {
+              const hash = window.location.hash;
+              if (hash) event.currentTarget.hash = hash;
+            }}
           >
             {labels[code]}
-          </Link>
+          </a>
         );
       })}
     </div>

@@ -5,14 +5,12 @@ import {
   useCallback,
   useContext,
   useEffect,
-  useState,
   type ReactNode,
 } from "react";
 
 type Theme = "light" | "dark";
 
 type ThemeContextValue = {
-  theme: Theme;
   toggleTheme: () => void;
   setTheme: (theme: Theme) => void;
 };
@@ -26,35 +24,28 @@ function applyTheme(theme: Theme) {
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("light");
-
   useEffect(() => {
     const stored = window.localStorage.getItem("theme");
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
-    const initial: Theme =
-      stored === "dark" || stored === "light"
-        ? stored
-        : prefersDark
-          ? "dark"
-          : "light";
-    setThemeState(initial);
-    applyTheme(initial);
+    if (stored === "dark" || stored === "light") return;
+
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    const apply = () => applyTheme(media.matches ? "dark" : "light");
+    media.addEventListener("change", apply);
+    return () => media.removeEventListener("change", apply);
   }, []);
 
   const setTheme = useCallback((next: Theme) => {
-    setThemeState(next);
     window.localStorage.setItem("theme", next);
     applyTheme(next);
   }, []);
 
   const toggleTheme = useCallback(() => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  }, [setTheme, theme]);
+    const isDark = document.documentElement.classList.contains("dark");
+    setTheme(isDark ? "light" : "dark");
+  }, [setTheme]);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
+    <ThemeContext.Provider value={{ toggleTheme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );

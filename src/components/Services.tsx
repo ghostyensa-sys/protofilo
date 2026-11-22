@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "motion/react";
+import Link from "next/link";
 import {
   engagementSteps,
   services,
@@ -13,9 +11,11 @@ import type { Locale } from "@/i18n/config";
 export function Services({
   locale,
   dictionary,
+  relatedTitles,
 }: {
   locale: Locale;
   dictionary: Dictionary;
+  relatedTitles: Record<string, string>;
 }) {
   return (
     <section
@@ -23,14 +23,8 @@ export function Services({
       className="scroll-mt-24 border-y border-[var(--ink)]/10 bg-[var(--paper-2)] px-6 py-24 sm:px-10 lg:px-16"
     >
       <div className="mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.55 }}
-          className="mb-14 max-w-2xl"
-        >
-          <p className="mb-3 text-xs tracking-[0.18em] text-[var(--muted)] uppercase">
+        <div className="reveal mb-14 max-w-2xl">
+          <p className="eyebrow mb-3 text-xs text-[var(--muted)]">
             {dictionary.services.eyebrow}
           </p>
           <h2 className="font-display text-4xl tracking-tight text-[var(--ink)] sm:text-5xl">
@@ -39,7 +33,7 @@ export function Services({
           <p className="mt-4 text-lg text-[var(--ink-soft)]">
             {dictionary.services.lead}
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid gap-px bg-[var(--ink)]/10 sm:grid-cols-2">
           {services.map((service, index) => (
@@ -48,12 +42,18 @@ export function Services({
               service={service}
               locale={locale}
               index={index}
+              dictionary={dictionary}
+              relatedTitle={
+                service.relatedSlug
+                  ? relatedTitles[service.relatedSlug]
+                  : undefined
+              }
             />
           ))}
         </div>
 
-        <div className="mt-16">
-          <p className="mb-3 text-xs tracking-[0.18em] text-[var(--accent-deep)] uppercase">
+        <div className="reveal mt-16">
+          <p className="eyebrow mb-3 text-xs text-[var(--accent-deep)]">
             {dictionary.services.modelEyebrow}
           </p>
           <h3 className="font-display text-3xl tracking-tight text-[var(--ink)] sm:text-4xl">
@@ -88,18 +88,19 @@ function ServiceCard({
   service,
   locale,
   index,
+  dictionary,
+  relatedTitle,
 }: {
   service: Service;
   locale: Locale;
   index: number;
+  dictionary: Dictionary;
+  relatedTitle?: string;
 }) {
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.45, delay: index * 0.04 }}
-      className="bg-[var(--paper)] p-6 sm:p-8"
+    <article
+      className="reveal bg-[var(--paper)] p-6 sm:p-8"
+      style={{ animationDelay: `${index * 40}ms` }}
     >
       <p className="font-display text-3xl text-[var(--accent)]/60">
         {String(index + 1).padStart(2, "0")}
@@ -107,9 +108,25 @@ function ServiceCard({
       <h3 className="mt-3 text-xl font-medium text-[var(--ink)]">
         {service.title[locale]}
       </h3>
-      <p className="mt-3 text-[var(--ink-soft)]">{service.problem[locale]}</p>
-      <p className="mt-3 text-[var(--ink)]">{service.outcome[locale]}</p>
-    </motion.article>
+      <p className="eyebrow mt-5 text-xs text-[var(--muted)]">
+        {dictionary.services.problem}
+      </p>
+      <p className="mt-2 text-[var(--ink-soft)]">{service.problem[locale]}</p>
+      <p className="eyebrow mt-5 text-xs text-[var(--accent-deep)]">
+        {dictionary.services.outcome}
+      </p>
+      <p className="mt-2 text-[var(--ink)]">{service.outcome[locale]}</p>
+      {service.relatedSlug ? (
+        <Link
+          href={`/${locale}/work/${service.relatedSlug}`}
+          className="mt-5 inline-flex text-sm font-medium text-[var(--accent-deep)] underline-offset-4 hover:underline"
+        >
+          {dictionary.services.seeSystem}
+          {relatedTitle ? ` — ${relatedTitle}` : ""}
+          {locale === "ar" ? " ←" : " →"}
+        </Link>
+      ) : null}
+    </article>
   );
 }
 
@@ -123,13 +140,8 @@ function StepItem({
   index: number;
 }) {
   return (
-    <motion.li
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.04 }}
-    >
-      <p className="text-xs tracking-[0.14em] text-[var(--muted)] uppercase">
+    <li className="reveal" style={{ animationDelay: `${index * 40}ms` }}>
+      <p className="eyebrow text-xs text-[var(--muted)]">
         {String(index + 1).padStart(2, "0")}
       </p>
       <p className="mt-2 text-lg font-medium text-[var(--ink)]">
@@ -138,6 +150,6 @@ function StepItem({
       <p className="mt-2 text-sm leading-relaxed text-[var(--ink-soft)]">
         {step.detail[locale]}
       </p>
-    </motion.li>
+    </li>
   );
 }

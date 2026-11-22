@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { motion } from "motion/react";
 import type { Dictionary } from "@/i18n/dictionaries";
 
 type Shot = {
@@ -13,23 +12,15 @@ type Shot = {
 
 function ScreenshotFrame({
   shot,
-  index,
   labels,
 }: {
   shot: Shot;
-  index: number;
   labels: Dictionary["caseStudy"];
 }) {
   const [failed, setFailed] = useState(false);
 
   return (
-    <motion.figure
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.55, delay: index * 0.08 }}
-      className="overflow-hidden"
-    >
+    <figure className="reveal overflow-hidden">
       <div className="relative aspect-[16/10] overflow-hidden bg-[var(--paper-2)] ring-1 ring-[var(--ink)]/10">
         {failed ? (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-[linear-gradient(135deg,var(--hero-glow),var(--hero-shade))] px-6 text-center">
@@ -59,7 +50,7 @@ function ScreenshotFrame({
           {shot.caption}
         </figcaption>
       ) : null}
-    </motion.figure>
+    </figure>
   );
 }
 
@@ -72,13 +63,8 @@ export function ScreenshotGallery({
 }) {
   return (
     <div className="grid gap-8 md:grid-cols-2">
-      {screenshots.map((shot, index) => (
-        <ScreenshotFrame
-          key={shot.src}
-          shot={shot}
-          index={index}
-          labels={labels}
-        />
+      {screenshots.map((shot) => (
+        <ScreenshotFrame key={shot.src} shot={shot} labels={labels} />
       ))}
     </div>
   );
