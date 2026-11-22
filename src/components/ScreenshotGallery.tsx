@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import type { Dictionary } from "@/i18n/dictionaries";
 
 type Shot = {
   src: string;
@@ -10,30 +9,14 @@ type Shot = {
   caption?: string;
 };
 
-function ScreenshotFrame({
-  shot,
-  labels,
-}: {
-  shot: Shot;
-  labels: Dictionary["caseStudy"];
-}) {
+function ScreenshotFrame({ shot }: { shot: Shot }) {
   const [failed, setFailed] = useState(false);
 
   return (
     <figure className="reveal overflow-hidden">
       <div className="relative aspect-[16/10] overflow-hidden bg-[var(--paper-2)] ring-1 ring-[var(--ink)]/10">
         {failed ? (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-[linear-gradient(135deg,var(--hero-glow),var(--hero-shade))] px-6 text-center">
-            <p className="text-sm font-medium text-[var(--ink)]">
-              {labels.screenshotPlaceholder}
-            </p>
-            <p className="max-w-sm text-xs text-[var(--muted)]">
-              {labels.dropImageAt}{" "}
-              <code className="text-[var(--accent-deep)]" dir="ltr">
-                {shot.src}
-              </code>
-            </p>
-          </div>
+          <div className="absolute inset-0 bg-[var(--paper-2)]" />
         ) : (
           <Image
             src={shot.src}
@@ -54,17 +37,11 @@ function ScreenshotFrame({
   );
 }
 
-export function ScreenshotGallery({
-  screenshots,
-  labels,
-}: {
-  screenshots: Shot[];
-  labels: Dictionary["caseStudy"];
-}) {
+export function ScreenshotGallery({ screenshots }: { screenshots: Shot[] }) {
   return (
     <div className="grid gap-8 md:grid-cols-2">
       {screenshots.map((shot) => (
-        <ScreenshotFrame key={shot.src} shot={shot} labels={labels} />
+        <ScreenshotFrame key={shot.src} shot={shot} />
       ))}
     </div>
   );

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CaseStages } from "@/components/CaseStages";
-import { MetricsStrip } from "@/components/MetricsStrip";
+import { CraftNote, MetricsStrip } from "@/components/MetricsStrip";
 import { ScreenshotGallery } from "@/components/ScreenshotGallery";
 import { SiteFooter } from "@/components/SiteFooter";
 import {
@@ -66,8 +66,8 @@ export default async function WorkCasePage({ params }: PageProps) {
 
   return (
     <main id="main">
-      <article className="px-6 pb-8 pt-28 sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-6xl">
+      <article className="pt-28 pb-8">
+        <div className="frame">
           <Link
             href={`/${locale}/#work`}
             className="text-sm text-[var(--muted)] transition hover:text-[var(--ink)]"
@@ -76,18 +76,10 @@ export default async function WorkCasePage({ params }: PageProps) {
             {dictionary.caseStudy.allWork}
           </Link>
 
-          <p className="eyebrow mt-8 text-xs text-[var(--accent-deep)]">
-            {localized.level === "pro"
-              ? dictionary.caseStudy.proLevel
-              : dictionary.caseStudy.personalLevel}
-          </p>
-          <h1 className="font-display mt-3 max-w-3xl text-4xl tracking-tight text-[var(--ink)] sm:text-6xl">
+          <h1 className="font-display display-tight mt-8 max-w-3xl text-4xl text-[var(--ink)] sm:text-6xl">
             {localized.title}
           </h1>
-          <p className="mt-5 max-w-2xl text-xl text-[var(--ink-soft)]">
-            {localized.summary}
-          </p>
-          <p className="mt-4 max-w-2xl text-lg text-[var(--ink)]">
+          <p className="mt-5 max-w-2xl text-xl leading-relaxed text-[var(--ink)]">
             {localized.outcome}
           </p>
 
@@ -103,18 +95,12 @@ export default async function WorkCasePage({ params }: PageProps) {
               <h2 className="eyebrow mb-6 text-sm text-[var(--muted)]">
                 {dictionary.caseStudy.screenshots}
               </h2>
-              <ScreenshotGallery
-                screenshots={screenshots}
-                labels={dictionary.caseStudy}
-              />
+              <ScreenshotGallery screenshots={screenshots} />
             </section>
           ) : null}
-          <p className="mt-4 text-xs text-[var(--muted)]">
-            {dictionary.caseStudy.privacyNote}
-          </p>
 
-          <section className="mt-20">
-            <h2 className="mb-10 font-display text-3xl tracking-tight text-[var(--ink)]">
+          <section className="mt-16">
+            <h2 className="font-display display-tight mb-10 text-3xl text-[var(--ink)]">
               {dictionary.caseStudy.theStory}
             </h2>
             <CaseStages
@@ -123,11 +109,10 @@ export default async function WorkCasePage({ params }: PageProps) {
             />
           </section>
 
-          <div className="mt-16">
-            <a
-              href={`/${locale}/#contact`}
-              className="inline-flex items-center justify-center bg-[var(--ink)] px-6 py-3 text-sm font-medium tracking-wide text-[var(--paper)] transition hover:bg-[var(--accent-deep)]"
-            >
+          <CraftNote metrics={localized.metrics} labels={dictionary.caseStudy} />
+
+          <div className="mt-10">
+            <a href={`/${locale}/#contact`} className="btn btn-primary">
               {dictionary.caseStudy.startSimilar}
             </a>
           </div>
@@ -141,7 +126,7 @@ export default async function WorkCasePage({ params }: PageProps) {
                 <span className="eyebrow block text-xs text-[var(--muted)]">
                   {dictionary.caseStudy.previous}
                 </span>
-                <span className="font-display text-xl group-hover:text-[var(--accent-deep)]">
+                <span className="font-display display-tight text-xl group-hover:text-[var(--accent-deep)]">
                   {locale === "ar" ? `${prevLocalized.title} →` : `← ${prevLocalized.title}`}
                 </span>
               </Link>
@@ -156,7 +141,7 @@ export default async function WorkCasePage({ params }: PageProps) {
                 <span className="eyebrow block text-xs text-[var(--muted)]">
                   {dictionary.caseStudy.next}
                 </span>
-                <span className="font-display text-xl group-hover:text-[var(--accent-deep)]">
+                <span className="font-display display-tight text-xl group-hover:text-[var(--accent-deep)]">
                   {locale === "ar" ? `← ${nextLocalized.title}` : `${nextLocalized.title} →`}
                 </span>
               </Link>

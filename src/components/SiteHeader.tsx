@@ -9,6 +9,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 
 const navItems = ["about", "services", "work", "contact"] as const;
+type NavId = (typeof navItems)[number];
 
 export function SiteHeader({
   locale,
@@ -19,8 +20,18 @@ export function SiteHeader({
 }) {
   const pathname = usePathname();
   const [openPath, setOpenPath] = useState<string | null>(null);
+  const [activePath, setActivePath] = useState<{
+    path: string;
+    id: NavId | null;
+  }>({ path: "", id: null });
   const open = openPath === pathname;
   const onHome = pathname.replace(/\/$/, "") === `/${locale}`;
+  const onCase = pathname.startsWith(`/${locale}/work`);
+  const current: NavId | null = onCase
+    ? "work"
+    : onHome && activePath.path === pathname
+      ? activePath.id
+      : null;
 
   useEffect(() => {
     if (!open) return;
@@ -30,6 +41,31 @@ export function SiteHeader({
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
+
+  useEffect(() => {
+    if (!onHome) return;
+    const nodes = navItems
+      .map((id) => document.getElementById(id))
+      .filter((node): node is HTMLElement => node !== null);
+    const visible = new Map<string, number>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            visible.set(entry.target.id, entry.boundingClientRect.top);
+          } else {
+            visible.delete(entry.target.id);
+          }
+        }
+        const next = [...visible.entries()].sort((a, b) => a[1] - b[1])[0];
+        const id = navItems.find((item) => item === next?.[0]) ?? null;
+        setActivePath({ path: pathname, id });
+      },
+      { rootMargin: "-20% 0px -55% 0px", threshold: [0, 0.2, 0.6] },
+    );
+    nodes.forEach((node) => observer.observe(node));
+    return () => observer.disconnect();
+  }, [onHome, pathname]);
 
   function sectionHref(id: string) {
     return onHome ? `#${id}` : `/${locale}/#${id}`;
@@ -42,24 +78,29 @@ export function SiteHeader({
   }));
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-[var(--ink)]/5 bg-[var(--paper)]/80 backdrop-blur-md">
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-6 sm:px-10 lg:max-w-[calc(100%-8rem)] lg:px-0 xl:max-w-6xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-[var(--ink)]/10 bg-[var(--paper)]/85 backdrop-blur-md">
+      <div className="frame flex h-14 items-center justify-between gap-3">
         <Link
           href={`/${locale}`}
-          className="font-display min-w-0 truncate text-lg tracking-tight text-[var(--ink)]"
+          className="font-display min-w-0 truncate text-lg text-[var(--ink)]"
         >
           {dictionary.hero.name}
         </Link>
-        <div className="flex items-center gap-2 sm:gap-4">
+        <div className="flex items-center gap-2 sm:gap-3">
           <nav
             aria-label={dictionary.nav.menu}
-            className="hidden items-center gap-5 text-sm text-[var(--ink-soft)] md:flex"
+            className="hidden items-center gap-5 text-sm md:flex"
           >
             {links.map((link) => (
               <a
                 key={link.id}
                 href={link.href}
-                className="transition hover:text-[var(--ink)]"
+                aria-current={current === link.id ? "true" : undefined}
+                className={
+                  current === link.id
+                    ? "text-[var(--accent-deep)]"
+                    : "text-[var(--ink-soft)] transition hover:text-[var(--ink)]"
+                }
               >
                 {link.label}
               </a>
@@ -69,7 +110,7 @@ export function SiteHeader({
           <ThemeToggle labels={dictionary.theme} />
           <button
             type="button"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--ink)]/15 text-[var(--ink)] md:hidden"
+            className="btn btn-icon md:hidden"
             aria-expanded={open}
             aria-controls="site-menu"
             aria-label={open ? dictionary.nav.close : dictionary.nav.menu}
@@ -83,15 +124,20 @@ export function SiteHeader({
         <nav
           id="site-menu"
           aria-label={dictionary.nav.menu}
-          className="border-t border-[var(--ink)]/10 bg-[var(--paper)] px-6 py-3 md:hidden"
+          className="border-t border-[var(--ink)]/10 bg-[var(--paper)] md:hidden"
         >
-          <div className="mx-auto flex max-w-6xl flex-col">
+          <div className="frame flex flex-col py-2">
             {links.map((link) => (
               <a
                 key={link.id}
                 href={link.href}
+                aria-current={current === link.id ? "true" : undefined}
                 onClick={() => setOpenPath(null)}
-                className="py-3 text-base text-[var(--ink)]"
+                className={`py-3 text-base ${
+                  current === link.id
+                    ? "text-[var(--accent-deep)]"
+                    : "text-[var(--ink)]"
+                }`}
               >
                 {link.label}
               </a>

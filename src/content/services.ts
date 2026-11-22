@@ -115,20 +115,6 @@ export const services: Service[] = [
 
 export const engagementSteps: EngagementStep[] = [
   {
-    title: { en: "Map the bottleneck", ar: "نفهم العائق" },
-    detail: {
-      en: "We start with the workflow that already exists and the step that wastes time.",
-      ar: "نبدأ من سير العمل الحالي، ومن الخطوة التي تستهلك الوقت.",
-    },
-  },
-  {
-    title: { en: "Build around current tools", ar: "نبني حول أدواتكم" },
-    detail: {
-      en: "Sheets, Excel, and the current process stay in place unless a change is actually needed.",
-      ar: "الجداول وExcel وطريقة العمل تبقى، إلا إذا كان التغيير ضروريًا فعلًا.",
-    },
-  },
-  {
     title: { en: "One-time setup", ar: "تنفيذ لمرة واحدة" },
     detail: {
       en: "Implementation is a one-time fee, scoped after the workflow is clear.",

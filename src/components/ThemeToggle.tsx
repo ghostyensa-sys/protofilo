@@ -10,7 +10,7 @@ export function ThemeToggle({ labels }: { labels: Dictionary["theme"] }) {
     <button
       type="button"
       onClick={toggleTheme}
-      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--ink)]/15 text-[var(--ink)] transition hover:border-[var(--accent)] hover:text-[var(--accent-deep)]"
+      className="btn btn-icon"
       aria-label={labels.toggle}
       title={labels.toggle}
     >

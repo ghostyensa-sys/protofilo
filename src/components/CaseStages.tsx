@@ -20,10 +20,10 @@ export function CaseStages({
             className="reveal grid gap-4 border-t border-[var(--ink)]/12 pt-10 md:grid-cols-[140px_1fr] md:gap-12"
           >
             <div>
-              <p className="font-display text-3xl text-[var(--accent)]/60">
+              <p className="text-xs text-[var(--muted)]">
                 {String(index + 1).padStart(2, "0")}
               </p>
-              <h2 className="eyebrow mt-2 text-sm text-[var(--ink)]">
+              <h2 className="mt-2 text-sm font-medium text-[var(--ink)]">
                 {stageLabels[key]}
               </h2>
             </div>
@@ -32,7 +32,7 @@ export function CaseStages({
                 {section.lead}
               </p>
               {section.points.length > 0 ? (
-                <ul className="mt-4 list-disc space-y-2 ps-5 text-lg leading-relaxed text-[var(--ink-soft)]">
+                <ul className="mt-4 space-y-2 border-s border-[var(--ink)]/15 ps-4 text-lg leading-relaxed text-[var(--ink-soft)]">
                   {section.points.map((point) => (
                     <li key={point}>{point}</li>
                   ))}
@@ -43,7 +43,7 @@ export function CaseStages({
                   <h3 className="text-base font-medium text-[var(--ink)]">
                     {group.title}
                   </h3>
-                  <ul className="mt-3 list-disc space-y-2 ps-5 text-lg leading-relaxed text-[var(--ink-soft)]">
+                  <ul className="mt-3 space-y-2 border-s border-[var(--ink)]/15 ps-4 text-lg leading-relaxed text-[var(--ink-soft)]">
                     {group.points.map((point) => (
                       <li key={point}>{point}</li>
                     ))}
