@@ -8,7 +8,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 
-const navItems = ["about", "services", "work", "contact"] as const;
+const navItems = ["about", "services", "tools", "work", "contact"] as const;
 type NavId = (typeof navItems)[number];
 
 export function SiteHeader({

@@ -36,7 +36,7 @@ export function Services({
           </p>
         </Reveal>
 
-        <Stagger className="grid gap-px bg-[var(--ink)]/10 sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <ServiceCard
               key={service.id}
@@ -89,8 +89,8 @@ function ServiceCard({
   dictionary: Dictionary;
 }) {
   return (
-    <StaggerItem className="flex flex-col bg-[var(--paper)] p-5 sm:p-6">
-      <article>
+    <StaggerItem className="h-full">
+      <article className="flex h-full flex-col rounded-2xl border border-[var(--ink)]/10 bg-[var(--paper)] p-6 transition duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)]/60">
         <p className="text-xs text-[var(--muted)]">
           {String(index + 1).padStart(2, "0")}
         </p>

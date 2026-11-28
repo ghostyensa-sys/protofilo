@@ -9,6 +9,7 @@ export type Dictionary = {
     about: string;
     work: string;
     services: string;
+    tools: string;
     contact: string;
     menu: string;
     close: string;
@@ -120,6 +121,7 @@ const ar: Dictionary = {
     about: "نبذة",
     work: "الأنظمة",
     services: "الخدمات",
+    tools: "الأدوات",
     contact: "تواصل",
     menu: "القائمة",
     close: "إغلاق",
@@ -231,6 +233,7 @@ const en: Dictionary = {
     about: "About",
     work: "Systems",
     services: "Services",
+    tools: "Tools",
     contact: "Contact",
     menu: "Menu",
     close: "Close",
