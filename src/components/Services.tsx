@@ -1,5 +1,13 @@
+"use client";
+
 import Link from "next/link";
-import { engagementSteps, services, type EngagementStep, type Service } from "@/content/services";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
+import {
+  engagementSteps,
+  services,
+  type EngagementStep,
+  type Service,
+} from "@/content/services";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 
@@ -13,22 +21,22 @@ export function Services({
   return (
     <section
       id="services"
-      className="scroll-mt-24 border-y border-[var(--ink)]/10 bg-[var(--paper-2)] py-20 sm:py-24"
+      className="scroll-mt-24 border-y border-[var(--ink)]/10 bg-[var(--paper-2)] py-16 sm:py-20"
     >
       <div className="frame">
-        <div className="reveal mb-12 max-w-2xl">
+        <Reveal className="mb-10 max-w-2xl">
           <p className="eyebrow mb-3 text-xs text-[var(--muted)]">
             {dictionary.services.eyebrow}
           </p>
-          <h2 className="font-display display-tight text-4xl text-[var(--ink)] sm:text-5xl">
+          <h2 className="font-display display-tight text-3xl text-[var(--ink)] sm:text-4xl">
             {dictionary.services.title}
           </h2>
-          <p className="mt-4 text-lg text-[var(--ink-soft)]">
+          <p className="mt-3 text-lg text-[var(--ink-soft)]">
             {dictionary.services.lead}
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid gap-px bg-[var(--ink)]/10 sm:grid-cols-2">
+        <Stagger className="grid gap-px bg-[var(--ink)]/10 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <ServiceCard
               key={service.id}
@@ -38,27 +46,32 @@ export function Services({
               dictionary={dictionary}
             />
           ))}
-        </div>
+        </Stagger>
 
-        <div className="reveal mt-16 max-w-3xl">
+        <Reveal className="mt-14 max-w-3xl" delay={0.05}>
           <p className="eyebrow mb-3 text-xs text-[var(--muted)]">
             {dictionary.services.modelEyebrow}
           </p>
-          <h3 className="font-display display-tight text-3xl text-[var(--ink)] sm:text-4xl">
+          <h3 className="font-display display-tight text-2xl text-[var(--ink)] sm:text-3xl">
             {dictionary.services.modelTitle}
           </h3>
-          <p className="mt-4 text-lg text-[var(--ink-soft)]">
+          <p className="mt-3 text-[var(--ink-soft)]">
             {dictionary.services.modelLead}
           </p>
-          <ol className="mt-8 grid gap-x-10 sm:grid-cols-2">
+          <ol className="mt-6 grid gap-x-10 sm:grid-cols-2">
             {engagementSteps.map((step, index) => (
-              <StepItem key={step.title.en} step={step} locale={locale} index={index} />
+              <StepItem
+                key={step.title.en}
+                step={step}
+                locale={locale}
+                index={index}
+              />
             ))}
           </ol>
-          <a href="#contact" className="btn btn-primary mt-10">
+          <a href="#contact" className="btn btn-primary mt-8">
             {dictionary.services.cta}
           </a>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -76,24 +89,28 @@ function ServiceCard({
   dictionary: Dictionary;
 }) {
   return (
-    <article className="reveal flex flex-col bg-[var(--paper)] p-6 sm:p-8">
-      <p className="text-xs text-[var(--muted)]">
-        {String(index + 1).padStart(2, "0")}
-      </p>
-      <h3 className="mt-3 text-xl font-medium text-[var(--ink)]">
-        {service.title[locale]}
-      </h3>
-      <p className="mt-3 text-[var(--ink-soft)]">{service.outcome[locale]}</p>
-      {service.relatedSlug ? (
-        <Link
-          href={`/${locale}/work/${service.relatedSlug}`}
-          className="mt-5 text-sm font-medium text-[var(--accent-deep)] underline-offset-4 hover:underline"
-        >
-          {dictionary.services.seeSystem}
-          {locale === "ar" ? " ←" : " →"}
-        </Link>
-      ) : null}
-    </article>
+    <StaggerItem className="flex flex-col bg-[var(--paper)] p-5 sm:p-6">
+      <article>
+        <p className="text-xs text-[var(--muted)]">
+          {String(index + 1).padStart(2, "0")}
+        </p>
+        <h3 className="mt-2 text-lg font-medium text-[var(--ink)]">
+          {service.title[locale]}
+        </h3>
+        <p className="mt-2 text-sm leading-relaxed text-[var(--ink-soft)]">
+          {service.outcome[locale]}
+        </p>
+        {service.relatedSlug ? (
+          <Link
+            href={`/${locale}/work/${service.relatedSlug}`}
+            className="mt-4 inline-block text-sm font-medium text-[var(--accent-deep)] underline-offset-4 hover:underline"
+          >
+            {dictionary.services.seeSystem}
+            {locale === "ar" ? " ←" : " →"}
+          </Link>
+        ) : null}
+      </article>
+    </StaggerItem>
   );
 }
 
@@ -107,11 +124,11 @@ function StepItem({
   index: number;
 }) {
   return (
-    <li className="border-t border-[var(--ink)]/12 py-5">
+    <li className="border-t border-[var(--ink)]/12 py-4">
       <p className="text-xs text-[var(--muted)]">
         {String(index + 1).padStart(2, "0")}
       </p>
-      <p className="mt-2 font-medium text-[var(--ink)]">{step.title[locale]}</p>
+      <p className="mt-1.5 font-medium text-[var(--ink)]">{step.title[locale]}</p>
       <p className="mt-1 text-sm leading-relaxed text-[var(--ink-soft)]">
         {step.detail[locale]}
       </p>

@@ -29,6 +29,11 @@ export type Dictionary = {
     point2: string;
     point3: string;
   };
+  aiTools: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+  };
   services: {
     eyebrow: string;
     title: string;
@@ -135,6 +140,11 @@ const ar: Dictionary = {
     point2: "لا يُحدَّد النظام إلا بعد ما يتضح سير العمل.",
     point3: "ما يُبنى هو شيء يشغّله الفريق كل يوم، لا تقرير يصف المشكلة.",
   },
+  aiTools: {
+    eyebrow: "أدوات الذكاء الاصطناعي",
+    title: "أصمّم وأبني بمساعدة أدوات الذكاء الاصطناعي.",
+    lead: "Claude وCodex وCursor وGrok وGemini جزء من طريقة عملي اليومية لتسريع التصميم والتنفيذ.",
+  },
   services: {
     eyebrow: "الخدمات",
     title: "أنظمة تُبنى حول طريقة عملكم الحالية.",
@@ -149,8 +159,8 @@ const ar: Dictionary = {
   },
   work: {
     eyebrow: "الأنظمة",
-    title: "أنظمة مختارة.",
-    lead: "أنظمة حقيقية صُممت حول التشغيل القائم. كل قصة توضح المشكلة، وما بُني، والنتيجة.",
+    title: "لمحة عن أنظمة مختارة.",
+    lead: "ثلاثة أنظمة حقيقية صُممت حول التشغيل القائم. افتح أي قصة لترى المشكلة، وما بُني، والنتيجة.",
     openStory: "افتح القصة",
     loc: "سطر",
   },
@@ -243,6 +253,11 @@ const en: Dictionary = {
     point3:
       "What gets built is a system the team runs every day, not a report about the problem.",
   },
+  aiTools: {
+    eyebrow: "AI tools",
+    title: "I design and ship with AI tools in the loop.",
+    lead: "Claude, Codex, Cursor, Grok, and Gemini are part of how I move faster from idea to working system.",
+  },
   services: {
     eyebrow: "Services",
     title: "Systems built around the workflow you already have.",
@@ -257,8 +272,8 @@ const en: Dictionary = {
   },
   work: {
     eyebrow: "Systems",
-    title: "Selected systems.",
-    lead: "Real systems designed around existing operations. Each story shows the problem, what was built, and the result.",
+    title: "A quick look at selected systems.",
+    lead: "Three real systems designed around existing operations. Open a story for the problem, the build, and the result.",
     openStory: "Open story",
     loc: "LOC",
   },

@@ -1,4 +1,5 @@
 import { About } from "@/components/About";
+import { AiTools } from "@/components/AiTools";
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -21,15 +22,9 @@ export default async function HomePage({ params }: PageProps) {
 
   return (
     <main id="main">
-      <Hero
-        locale={locale}
-        dictionary={dictionary}
-        systems={systems.map((project) => ({
-          slug: project.slug,
-          title: project.title,
-        }))}
-      />
+      <Hero dictionary={dictionary} />
       <About dictionary={dictionary} />
+      <AiTools dictionary={dictionary} />
       <Services locale={locale} dictionary={dictionary} />
       <WorkLanes locale={locale} dictionary={dictionary} projects={systems} />
       <SiteFooter dictionary={dictionary} />
