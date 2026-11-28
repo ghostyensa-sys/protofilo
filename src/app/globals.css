@@ -10,7 +10,7 @@
   --muted: #5a6574;
   --accent: #2d8c94;
   --accent-deep: #1f6b72;
-  --hero-glow: rgba(45, 140, 148, 0.18);
+  --hero-glow: rgba(45, 140, 148, 0.22);
   --hero-shade: rgba(11, 18, 32, 0.08);
   --background: var(--paper);
   --foreground: var(--ink);
@@ -196,6 +196,19 @@ html[lang="ar"] .tracking-wide {
 
 .dark ::selection {
   background: rgba(62, 168, 176, 0.35);
+}
+
+.hero-mesh {
+  background-image:
+    radial-gradient(circle at 20% 30%, color-mix(in srgb, var(--accent) 12%, transparent) 0, transparent 28%),
+    radial-gradient(circle at 80% 70%, color-mix(in srgb, var(--accent-deep) 10%, transparent) 0, transparent 32%),
+    repeating-linear-gradient(
+      -12deg,
+      transparent,
+      transparent 11px,
+      color-mix(in srgb, var(--ink) 3%, transparent) 11px,
+      color-mix(in srgb, var(--ink) 3%, transparent) 12px
+    );
 }
 
 @keyframes rise {

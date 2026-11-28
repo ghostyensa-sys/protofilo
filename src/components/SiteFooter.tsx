@@ -1,11 +1,14 @@
+"use client";
+
+import { Reveal } from "@/components/motion/Reveal";
 import { contact } from "@/content/contact";
 import type { Dictionary } from "@/i18n/dictionaries";
 
 export function SiteFooter({ dictionary }: { dictionary: Dictionary }) {
   return (
     <footer id="contact" className="scroll-mt-24 border-t border-[var(--ink)]/10">
-      <div className="frame flex flex-col gap-10 py-20 lg:flex-row lg:items-end lg:justify-between">
-        <div className="max-w-xl">
+      <div className="frame flex flex-col gap-10 py-16 lg:flex-row lg:items-end lg:justify-between lg:py-20">
+        <Reveal className="max-w-xl">
           <p className="eyebrow mb-3 text-xs text-[var(--muted)]">
             {dictionary.contact.eyebrow}
           </p>
@@ -15,8 +18,8 @@ export function SiteFooter({ dictionary }: { dictionary: Dictionary }) {
           <p className="mt-3 max-w-md text-[var(--ink-soft)]">
             {dictionary.contact.lead}
           </p>
-        </div>
-        <div className="flex flex-col items-start gap-4">
+        </Reveal>
+        <Reveal delay={0.08} className="flex flex-col items-start gap-4">
           <a
             href={contact.whatsapp}
             target="_blank"
@@ -43,7 +46,7 @@ export function SiteFooter({ dictionary }: { dictionary: Dictionary }) {
               {dictionary.contact.linkedin}
             </a>
           </div>
-        </div>
+        </Reveal>
       </div>
       <p className="frame pb-10 text-xs text-[var(--muted)]">
         © {new Date().getFullYear()} {dictionary.hero.name}.{" "}

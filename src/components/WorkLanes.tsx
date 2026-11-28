@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
 import type { LocalizedProject } from "@/content/projects";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -7,31 +10,40 @@ function ProjectRow({
   project,
   locale,
   dictionary,
+  index,
 }: {
   project: LocalizedProject;
   locale: Locale;
   dictionary: Dictionary;
+  index: number;
 }) {
   return (
-    <Link
-      href={`/${locale}/work/${project.slug}`}
-      className="group grid gap-3 border-t border-[var(--ink)]/12 py-7 transition sm:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] sm:items-end sm:gap-10"
-    >
-      <div className="min-w-0">
-        <h3 className="font-display display-tight text-2xl text-[var(--ink)] transition group-hover:text-[var(--accent-deep)] sm:text-3xl">
-          {project.title}
-        </h3>
-        <p className="mt-2 max-w-xl text-[var(--ink-soft)]">{project.hook}</p>
-      </div>
-      <div className="flex flex-col gap-2 sm:items-end">
-        <p className="text-sm leading-relaxed text-[var(--ink)] sm:text-end">
-          {project.outcome}
-        </p>
-        <span className="text-sm text-[var(--accent-deep)]">
-          {dictionary.work.openStory} {locale === "ar" ? "←" : "→"}
+    <StaggerItem>
+      <Link
+        href={`/${locale}/work/${project.slug}`}
+        className="group grid gap-2 border-t border-[var(--ink)]/12 py-6 transition sm:grid-cols-[2.5rem_minmax(0,1.15fr)_minmax(0,0.85fr)] sm:items-baseline sm:gap-8"
+      >
+        <span className="hidden text-xs text-[var(--muted)] sm:block">
+          {String(index + 1).padStart(2, "0")}
         </span>
-      </div>
-    </Link>
+        <div className="min-w-0">
+          <h3 className="font-display display-tight text-xl text-[var(--ink)] transition group-hover:text-[var(--accent-deep)] sm:text-2xl">
+            {project.title}
+          </h3>
+          <p className="mt-1.5 max-w-xl text-sm leading-relaxed text-[var(--ink-soft)] sm:text-base">
+            {project.hook}
+          </p>
+        </div>
+        <div className="flex flex-col gap-1.5 sm:items-end">
+          <p className="line-clamp-2 text-sm leading-relaxed text-[var(--muted)] sm:text-end">
+            {project.outcome}
+          </p>
+          <span className="text-sm text-[var(--accent-deep)]">
+            {dictionary.work.openStory} {locale === "ar" ? "←" : "→"}
+          </span>
+        </div>
+      </Link>
+    </StaggerItem>
   );
 }
 
@@ -45,28 +57,29 @@ export function WorkLanes({
   projects: LocalizedProject[];
 }) {
   return (
-    <section id="work" className="scroll-mt-24 py-20 sm:py-24">
+    <section id="work" className="scroll-mt-24 py-16 sm:py-20">
       <div className="frame">
-        <div className="reveal mb-10 max-w-2xl">
+        <Reveal className="mb-8 max-w-2xl">
           <p className="eyebrow mb-3 text-xs text-[var(--muted)]">
             {dictionary.work.eyebrow}
           </p>
-          <h2 className="font-display display-tight text-4xl text-[var(--ink)] sm:text-5xl">
+          <h2 className="font-display display-tight text-3xl text-[var(--ink)] sm:text-4xl">
             {dictionary.work.title}
           </h2>
-          <p className="mt-4 text-lg text-[var(--ink-soft)]">{dictionary.work.lead}</p>
-        </div>
+          <p className="mt-3 text-lg text-[var(--ink-soft)]">{dictionary.work.lead}</p>
+        </Reveal>
 
-        <div className="border-b border-[var(--ink)]/12">
-          {projects.map((project) => (
+        <Stagger className="border-b border-[var(--ink)]/12">
+          {projects.map((project, index) => (
             <ProjectRow
               key={project.slug}
               project={project}
               locale={locale}
               dictionary={dictionary}
+              index={index}
             />
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

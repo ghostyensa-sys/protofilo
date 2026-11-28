@@ -78,11 +78,11 @@ export function SiteHeader({
   }));
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-[var(--ink)]/10 bg-[var(--paper)]/85 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-[var(--ink)]/10 bg-[var(--paper)]/80 backdrop-blur-xl supports-[backdrop-filter]:bg-[var(--paper)]/70">
       <div className="frame flex h-14 items-center justify-between gap-3">
         <Link
           href={`/${locale}`}
-          className="font-display min-w-0 truncate text-lg text-[var(--ink)]"
+          className="font-display min-w-0 truncate text-lg text-[var(--ink)] transition hover:text-[var(--accent-deep)]"
         >
           {dictionary.hero.name}
         </Link>
