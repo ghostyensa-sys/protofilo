@@ -22,7 +22,15 @@ export default async function HomePage({ params }: PageProps) {
 
   return (
     <main id="main">
-      <Hero dictionary={dictionary} />
+      <Hero
+        locale={locale}
+        dictionary={dictionary}
+        systems={systems.map((project) => ({
+          slug: project.slug,
+          title: project.title,
+          hook: project.hook,
+        }))}
+      />
       <About dictionary={dictionary} />
       <AiTools dictionary={dictionary} />
       <Services locale={locale} dictionary={dictionary} />

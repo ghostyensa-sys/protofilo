@@ -2,51 +2,54 @@
 
 import { Reveal } from "@/components/motion/Reveal";
 import type { Dictionary } from "@/i18n/dictionaries";
-import { motion, useReducedMotion } from "motion/react";
+import type { Locale } from "@/i18n/config";
 
-export function Hero({ dictionary }: { dictionary: Dictionary }) {
-  const reduce = useReducedMotion();
+export type HeroSystem = {
+  slug: string;
+  title: string;
+  hook: string;
+};
 
+export function Hero({
+  locale,
+  dictionary,
+  systems,
+}: {
+  locale: Locale;
+  dictionary: Dictionary;
+  systems: HeroSystem[];
+}) {
   return (
-    <section className="relative min-h-[min(100svh,52rem)] overflow-hidden">
+    <section className="relative overflow-hidden">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[linear-gradient(165deg,var(--paper)_0%,var(--paper-2)_48%,var(--paper)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_120%_80%_at_50%_-10%,var(--hero-glow),transparent_55%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_100%_40%,var(--hero-glow),transparent_50%)]" />
-        <div className="hero-mesh absolute inset-0 opacity-[0.35] dark:opacity-[0.25]" />
-        {!reduce ? (
-          <motion.div
-            className="absolute -top-24 start-1/2 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-[var(--hero-glow)] blur-3xl"
-            animate={{ opacity: [0.35, 0.55, 0.35], scale: [1, 1.08, 1] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          />
-        ) : null}
+        <div className="absolute inset-0 bg-[var(--paper)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_100%_0%,var(--hero-glow),transparent_60%)]" />
       </div>
 
-      <div className="frame flex min-h-[min(100svh,52rem)] flex-col justify-end pb-16 pt-28 sm:pb-20 sm:pt-32 lg:pb-24 lg:pt-36">
-        <div className="max-w-3xl">
+      <div className="frame grid items-end gap-12 pt-28 pb-14 sm:pt-32 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)] lg:gap-16 lg:pt-36 lg:pb-20">
+        <div className="max-w-xl">
           <Reveal>
             <p className="eyebrow mb-4 text-sm text-[var(--muted)]">
               {dictionary.hero.eyebrow}
             </p>
           </Reveal>
-          <Reveal delay={0.06}>
-            <p className="font-display display-tight text-[clamp(2.75rem,7vw,5.25rem)] leading-[1.02] text-[var(--ink)]">
+          <Reveal delay={0.05}>
+            <p className="font-display text-lg text-[var(--accent-deep)]">
               {dictionary.hero.name}
             </p>
           </Reveal>
-          <Reveal delay={0.12}>
-            <h1 className="mt-5 max-w-2xl text-xl font-medium leading-snug text-[var(--ink-soft)] sm:text-2xl">
+          <Reveal delay={0.1}>
+            <h1 className="font-display display-tight mt-3 text-[clamp(2.4rem,5.4vw,4.25rem)] leading-[1.05] text-[var(--ink)]">
               {dictionary.hero.headline}
             </h1>
           </Reveal>
-          <Reveal delay={0.18}>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--muted)] sm:text-lg">
+          <Reveal delay={0.16}>
+            <p className="mt-5 text-base leading-relaxed text-[var(--ink-soft)] sm:text-lg">
               {dictionary.hero.lead}
             </p>
           </Reveal>
-          <Reveal delay={0.24}>
-            <div className="mt-9 flex flex-wrap gap-3">
+          <Reveal delay={0.22}>
+            <div className="mt-8 flex flex-wrap gap-3">
               <a href="#services" className="btn btn-primary">
                 {dictionary.hero.ctaServices}
               </a>
@@ -56,6 +59,29 @@ export function Hero({ dictionary }: { dictionary: Dictionary }) {
             </div>
           </Reveal>
         </div>
+
+        <Reveal delay={0.12}>
+          <ol className="grid gap-3">
+            {systems.map((system, index) => (
+              <li key={system.slug}>
+                <a
+                  href={`/${locale}/work/${system.slug}`}
+                  className="group block rounded-2xl border border-[var(--ink)]/10 bg-[var(--paper)]/80 p-4 backdrop-blur-sm transition duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)]/60"
+                >
+                  <span className="text-xs text-[var(--muted)]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="mt-1 block font-medium text-[var(--ink)] transition group-hover:text-[var(--accent-deep)]">
+                    {system.title}
+                  </span>
+                  <span className="mt-1 block text-sm leading-relaxed text-[var(--ink-soft)]">
+                    {system.hook}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </Reveal>
       </div>
     </section>
   );
